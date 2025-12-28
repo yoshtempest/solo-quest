@@ -1,3 +1,37 @@
 body {
     background-color: white;
 }
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 2vw 0 2vw;
+}
+
+.eyeicon {
+    position: absolute;
+    right: 5vw;
+}
+
+.character {
+    margin-bottom: -3vh;
+    transform: translateX(-150%);
+    width: 20vw;
+    height: auto;
+}
+
+.lowHr {
+    width: 35vw;
+    align-self: center;
+}
+
+.spacingRow {
+    margin: 0 5vw 0 5vw;
+}
+
+.link {
+    position: absolute;
+    margin-bottom: 9vh;
+    transform: translateX(10%);
+}
