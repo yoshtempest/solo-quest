@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import AllRoutes from "./routers/index.tsx";
 import './globals.css'
 import App from './App.tsx'
 import Header from "./components/Header/index.tsx";
@@ -7,6 +8,7 @@ import Header from "./components/Header/index.tsx";
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Header />
+    <AllRoutes />
     <App />
   </StrictMode>,
 )

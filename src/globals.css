@@ -136,3 +136,10 @@ a {
   flex-direction: column;
   align-items: center;
 }
+
+.character {
+    margin-bottom: -3vh;
+    transform: translateX(-150%);
+    width: 20vw;
+    height: auto;
+}

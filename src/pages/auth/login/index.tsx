@@ -1,5 +1,7 @@
 import { Mail } from "lucide-react";
 import Password from "@/components/Password";
+import ROUTES from "@/core/constants/routes";
+import { Link, useNavigate } from "react-router";
 import styles from "./styles.module.css";
 
 export default function LoginPage() {
@@ -25,7 +27,7 @@ export default function LoginPage() {
                 <img
                 src="/src/assets/character.svg"
                 alt="character"
-                className={styles.character}
+                className="character"
                 />
                 <button type="submit">Entrar</button>
                 <div className="rowContainer">
@@ -33,9 +35,9 @@ export default function LoginPage() {
                     <h2 className={styles.spacingRow}>Ou</h2>
                     <hr className={styles.lowHr} />
                 </div>
-                <button
+                <Link
                 type="button"
-                onClick={() => window.location.href = '/auth/register'}>Cadastre-se</button>
+                to={ROUTES.register}>Cadastre-se</Link>
             </form>
         </div>
     )

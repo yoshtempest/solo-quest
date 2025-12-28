@@ -1,6 +1,5 @@
 body {
     background-color: white;
-    overflow: hidden;
 }
 
 .inputContainer {
@@ -8,18 +7,6 @@ body {
     align-items: center;
     gap: 10px;
     padding: 0 2vw 0 2vw;
-}
-
-.eyeicon {
-    position: absolute;
-    right: 5vw;
-}
-
-.character {
-    margin-bottom: -3vh;
-    transform: translateX(-150%);
-    width: 20vw;
-    height: auto;
 }
 
 .lowHr {
