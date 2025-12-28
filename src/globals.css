@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Inter";
+  src: url("/src/assets/fonts/inter-regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Irish Grover";
+  src: url("/src/assets/fonts/irish-grover-regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Arima";
+  src: url("/src/assets/fonts/arima-regular.ttf") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /*Background de fundo e cor de Letras*/
+  --background: #f3f3f3;
+  --foreground: #171717;
+  /*Cor Principal*/
+  --main-color: #004d80;
+
+  /*Cores Links*/
+  --link-color: #183aba;
+
+  /* Gray */
+  --gray: #888888;
+  --white: #fff
+
+  /*Fontes*/
+  --irish-grover: "Irish Grover"; /*Usado no Header*/
+  --arima: "Arima";
+  --inter: "Inter"; /*Usado nos <h1> <h2> <h3> <h4> <h5>*/
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+h1,
+h2,
+h3,
+h4,
+label {
+  font-family: var(--inter);
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+label {
+  font-size: 32px;
+}
+
+input {
+  width: 80vw;
+  height: 4vh;
+  border: none;
+}
+
+input::placeholder {
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3vh;
+  color: var(--foreground);
+}
+
+.centerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.page {
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  gap: 3vh;
+  margin-top: 5vh;
+  flex-direction: column;
+  align-items: center;
+}
