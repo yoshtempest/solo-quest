@@ -4,18 +4,25 @@ import { EyeOff } from "lucide-react";
 import { useState } from "react";
 import styles from "./styles.module.css";
 
-export default function Password() {
+
+interface Props {
+    value: string;
+    onChange: (value: string) => void;
+}
+export default function Password({ value, onChange }: Props) {
     const [hidePassword, setHidePassowrd] = useState<boolean>(true);
     return (
         <div>
             <label htmlFor="password">Senha</label>
-            <div className={styles.inputContainer}>
-                <Lock className={styles.icon} />
+            <div className="inputContainer">
+                <Lock />
                 <input
                 type={hidePassword ? "password" : "text"}
                 id="password"
                 name="password"
                 placeholder="Digite sua senha"
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
                 required />
                 {hidePassword ? (
                     <Eye

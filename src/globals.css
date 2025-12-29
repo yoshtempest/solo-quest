@@ -66,7 +66,9 @@ h2 {
   font-size: 32px;
 }
 
-h3 {
+h3,
+input,
+button {
   font-size: 24px;
 }
 
@@ -82,7 +84,6 @@ input {
   width: 80vw;
   height: 4vh;
   border: none;
-  font-size: 24px;
   padding: 0 6vw 0 0;
 }
 
@@ -102,7 +103,6 @@ button {
   color: var(--background);
   border: none;
   border-radius: 5px;
-  font-size: 24px;
   cursor: pointer;
 }
 
@@ -142,4 +142,11 @@ a {
     transform: translateX(-150%);
     width: 20vw;
     height: auto;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 2vw 0 2vw;
 }

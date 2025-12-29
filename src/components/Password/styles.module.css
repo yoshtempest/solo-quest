@@ -1,10 +1,3 @@
-.inputContainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0 2vw 0 2vw;
-}
-
 .eyeicon {
     position: absolute;
     right: 5vw;

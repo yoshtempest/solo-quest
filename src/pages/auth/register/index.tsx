@@ -1,17 +1,20 @@
-import { Mail } from "lucide-react";
 import { User } from "lucide-react";
+import Email from "@/components/Email";
 import Password from "@/components/Password";
 import styles from "./styles.module.css";
+import { useState } from "react";
 
 export default function RegisterPage() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     return (
         <div className="page">
             <h1>Cadastro</h1>
             <form>
                 <div>
                     <label htmlFor="email">Username</label>
-                    <div className={styles.inputContainer}>
-                        <User className={styles.icon} />
+                    <div className="inputContainer">
+                        <User />
                         <input
                         type="text"
                         id="username"
@@ -21,20 +24,8 @@ export default function RegisterPage() {
                     </div>
                     <hr />
                 </div>
-                <div>
-                    <label htmlFor="email">E-mail</label>
-                    <div className={styles.inputContainer}>
-                        <Mail className={styles.icon} />
-                        <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Digite seu email"
-                        required />
-                    </div>
-                    <hr />
-                </div>
-                <Password />
+                <Email value={email} onChange={setEmail} />
+                <Password value={password} onChange={setPassword} />
                 <h3 className={styles.haveAccount}>- Já possui uma conta?
                     <a href="/auth/login">Faça Login</a>
                 </h3>

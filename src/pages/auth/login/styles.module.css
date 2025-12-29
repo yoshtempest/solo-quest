@@ -2,13 +2,6 @@ body {
     background-color: white;
 }
 
-.inputContainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0 2vw 0 2vw;
-}
-
 .lowHr {
     width: 35vw;
     align-self: center;
