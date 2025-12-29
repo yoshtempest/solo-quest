@@ -1,10 +1,11 @@
 import { Mail } from "lucide-react";
 import Password from "@/components/Password";
 import ROUTES from "@/core/constants/routes";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import styles from "./styles.module.css";
 
 export default function LoginPage() {
+    const navigate = useNavigate();
     return (
         <div className="page">
             <h1>Login</h1>
@@ -35,9 +36,9 @@ export default function LoginPage() {
                     <h2 className={styles.spacingRow}>Ou</h2>
                     <hr className={styles.lowHr} />
                 </div>
-                <Link
+                <button
                 type="button"
-                to={ROUTES.register}>Cadastre-se</Link>
+                onClick={() => navigate(ROUTES.auth.register)}>Cadastre-se</button>
             </form>
         </div>
     )

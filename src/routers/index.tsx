@@ -1,12 +1,13 @@
 import ROUTES from "@/core/constants/routes";
-import { Route, Routes } from "react-router";
-
-const Login = import('@/pages/auth/login'));
+import { Route, Routes } from "react-router-dom";
+import LoginPage from "@/pages/auth/login";
+import RegisterPage from "@/pages/auth/register";
 
 export default function AllRoutes() {
     return (
         <Routes>
-            <Route path={ROUTES.login} element={<Login />} />
+            <Route path={ROUTES.auth.login} element={<LoginPage />} />
+            <Route path={ROUTES.auth.register} element={<RegisterPage />} />
         </Routes>
     )
 }
