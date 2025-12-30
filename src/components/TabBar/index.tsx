@@ -3,7 +3,6 @@ import ROUTES from "@/core/constants/routes";
 import IMAGES from "@/core/constants/images";
 import { useIsTabRoute } from "@/hooks/useIsTabRoute";
 import { useLocation, useNavigate } from "react-router";
-// import { Home, CircleUser, Medal } from "lucide-react";
 
 export default function TabBar() {
     const navigate = useNavigate();
@@ -25,16 +24,25 @@ export default function TabBar() {
                     {tabs.map((tab) => {
                         const isActive = pathname === tab.route;
                         return (
-                        <button key={tab.key} onClick={() => navigate(tab.route)} className={styles.button}>
-                            <img
-                            className={`${styles.images} ${isActive ? styles.imagesFocus : ""}`}
-                            src={tab.icon}
-                            alt={tab.label}
-                            width={100}
-                            height={100}
-                            />
-                            <h4>{tab.label}</h4>
-                        </button>
+                            <button
+                                key={tab.key}
+                                onClick={() => navigate(tab.route)}
+                                className={styles.button}
+                            >
+                                <div 
+                                    className={`${styles.content} ${
+                                        isActive ? styles.active : styles.inactive
+                                    }`}>
+                                    <img
+                                        className={styles.images}
+                                        src={tab.icon}
+                                        alt={tab.label}
+                                        width={100}
+                                        height={100}
+                                    />
+                                    <h4>{tab.label}</h4>
+                                </div>
+                            </button>
                         );
                     })}
                 </div>

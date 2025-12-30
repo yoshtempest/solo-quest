@@ -9,31 +9,38 @@
     left: 0;
     width: 100%;
     height: 10vh;
-    gap: 10vw;
-}
-
-.boss {
-    width: 32px;
+    gap: 5vw;
 }
 
 .button {
     background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .images {
+  width: 32px;
+}
+.content {
+  transition: opacity 0.25s ease;
+  color: black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-height: 5vh;
+}
+
+.inactive {
   opacity: 0.5;
-  width: 25%;
-  height: auto;
 }
-.imagesFocus {
+
+.active {
   opacity: 1;
-  width: 7vw;
-  height: auto;
+  max-height: 8vh;
 }
+
 .invisible {
   display: none;
 }

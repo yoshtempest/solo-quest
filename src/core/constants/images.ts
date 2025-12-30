@@ -1,8 +1,13 @@
+import home from "@/assets/icons/home.svg";
+import boss from "@/assets/icons/boss.svg";
+import conquers from "@/assets/icons/conquers.svg";
+import profile from "@/assets/icons/profile.svg";
+
 const IMAGES = {
-    home: "/assets/icons/home.svg",
-    boss: "/assets/icons/boss.svg",
-    conquers: "/assets/icons/conquers.svg",
-    profile: "/assets/icons/profile.svg",
+    home,
+    boss,
+    conquers,
+    profile,
 }
 
 export default IMAGES;
