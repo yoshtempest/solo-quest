@@ -2,7 +2,7 @@
     display: flex;
     position: fixed;
     box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.7);
-    color: black;
+    background-color: var(--background);
     align-items: center;
     justify-content: center;
     bottom: 0;
@@ -14,4 +14,26 @@
 
 .boss {
     width: 32px;
+}
+
+.button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+.images {
+  opacity: 0.5;
+  width: 25%;
+  height: auto;
+}
+.imagesFocus {
+  opacity: 1;
+  width: 7vw;
+  height: auto;
+}
+.invisible {
+  display: none;
 }

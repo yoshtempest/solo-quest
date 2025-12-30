@@ -5,6 +5,8 @@ const ROUTES = {
         register: '/auth/register',
         forgotPassword: '/auth/forgot-password',
     },
+    boss: '/boss',
+    conquers: '/conquers',
     profile: '/profile',
 };
 
