@@ -1,0 +1,17 @@
+.character {
+    width: 20vw;
+}
+
+.characterInfos {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-self: center;
+}
+
+.xpBar {
+    display: flex;
+    align-items: center;
+    width: 40vw;
+    background-color: cyan;
+}

@@ -120,6 +120,7 @@ a {
 .rowContainer {
   display: flex;
   flex-direction: row;
+  gap: 2vw;
 }
 
 .page {
@@ -136,7 +137,6 @@ a {
     margin-bottom: -3vh;
     transform: translateX(-150%);
     width: 20vw;
-    height: auto;
 }
 
 .inputContainer {
