@@ -15,6 +15,7 @@ export default function BossPage() {
                     />
                 </div>
                 <h3 className={styles.textCenter}>Nível recomendado: 20</h3>
+                <h3 className={styles.textCenter}>Recompensa: 500XP</h3>
                 <button>Alterar Dificuldade<ChevronRight/></button>
             </div>
         </div>

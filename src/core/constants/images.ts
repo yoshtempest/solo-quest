@@ -4,6 +4,7 @@ import conquers from "@/assets/icons/conquers.svg";
 import profile from "@/assets/icons/profile.svg";
 
 import bossBadge from "@/assets/icons/boss-badge.svg";
+import guild from "@/assets/icons/guild.svg"
 
 const IMAGES = {
     home,
@@ -11,6 +12,7 @@ const IMAGES = {
     conquers,
     profile,
     bossBadge,
+    guild,
 }
 
 export default IMAGES;
