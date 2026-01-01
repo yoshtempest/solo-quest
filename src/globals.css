@@ -97,11 +97,14 @@ form {
 }
 
 button {
+  display: flex;
   width: 80vw;
   height: 6vh;
   background-color: var(--main-color);
   color: var(--background);
   border: none;
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
   cursor: pointer;
 }

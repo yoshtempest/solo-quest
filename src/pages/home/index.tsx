@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { CircleFadingArrowUp } from 'lucide-react'
+import { CircleFadingArrowUp, ChevronDown } from 'lucide-react'
 
 export default function HomePage() {
     return (
@@ -19,17 +19,15 @@ export default function HomePage() {
                     <h4>Ofensiva: 0 dias</h4>
                     <h4>10 de XP para o próximo nível</h4>
                     <div className="rowContainer">
+                        <h3>EXP</h3>
                         <div className={styles.xpBar}>
                             <CircleFadingArrowUp className={styles.icon}/>
                         </div>
-                        <h4>Nv.02</h4>
                     </div>
-
-
                 </div>
-
             </div>
-
+            <button>Missões Diárias<ChevronDown/></button>
+            <button>Missões Semanais<ChevronDown/></button>
         </div>
     )
 } 
