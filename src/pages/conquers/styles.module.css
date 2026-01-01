@@ -1,0 +1,57 @@
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 78vw;
+    height: 7vh;
+    text-align: center;
+    background-color: #d9d9d9;
+    margin-top: 0.5vh;
+}
+
+.difficulties {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1vw;
+    width: fit-content;
+}
+
+.difficulties h4 {
+    /* width: 10vw; */
+    text-align: center;
+    background-color: #d9d9d9;
+    border-radius: 2px;
+}
+
+.moreBig {
+    display: flex;
+    position: absolute;
+    height: 9vh;
+    align-items: flex-end;
+    justify-content: center;
+    width: 18vw;
+    left: 3vw;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+}
+
+.icon {
+    height: 6vh;
+    margin-bottom: 1vh;
+}
+
+.rowContainer {
+    display: flex;
+    flex-direction: row;
+    height: 8vh;
+}
+
+.columnContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 14vw;
+    align-items: center;
+    justify-content: flex-start;
+}

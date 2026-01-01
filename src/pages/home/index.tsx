@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { CircleFadingArrowUp, ChevronDown } from 'lucide-react'
+import { CircleFadingArrowUp, ChevronRight } from 'lucide-react'
 
 export default function HomePage() {
     return (
@@ -26,8 +26,8 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <button>Missões Diárias<ChevronDown/></button>
-            <button>Missões Semanais<ChevronDown/></button>
+            <button>Missões Diárias<ChevronRight/></button>
+            <button>Missões Semanais<ChevronRight/></button>
         </div>
     )
 } 
