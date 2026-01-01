@@ -20,7 +20,7 @@ export default function HomePage() {
                     <h4>10 de XP para o próximo nível</h4>
                     <div className="rowContainer">
                         <div className={styles.xpBar}>
-                            <CircleFadingArrowUp />
+                            <CircleFadingArrowUp className={styles.icon}/>
                         </div>
                         <h4>Nv.02</h4>
                     </div>

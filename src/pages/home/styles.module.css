@@ -12,6 +12,15 @@
 .xpBar {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     width: 40vw;
-    background-color: cyan;
+    height: 3.5vh;
+    border-radius: 10px;
+    background-color: #80A0F8;
+    border: 1px solid black;
+}
+
+.icon {
+    border-left: 1px solid black;
+    width: 8vw;
 }
