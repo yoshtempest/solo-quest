@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { CircleFadingArrowUp, ChevronRight } from 'lucide-react'
+import { CircleFadingArrowUp, ChevronRight, Flame, Award, Skull } from 'lucide-react'
 
 export default function HomePage() {
     return (
@@ -15,8 +15,18 @@ export default function HomePage() {
                 </div>
                 <div className={styles.characterInfos}>
                     <h3>Nível: 01</h3>
-                    <h4>Ranque: Frango</h4>
-                    <h4>Ofensiva: 0 dias</h4>
+                    <div className='rowContainer'>
+                        <Award />
+                        <h4>Ranque: Frango</h4>
+                    </div>
+                    <div className='rowContainer'>
+                        <Flame />
+                        <h4>Ofensiva: 0 dias</h4>
+                    </div>
+                    <div className='rowContainer'>
+                        <Skull />
+                        <h4>Bosses derrotados: 0</h4>
+                    </div>
                     <h4>10 de XP para o próximo nível</h4>
                     <div className="rowContainer">
                         <h3>EXP</h3>

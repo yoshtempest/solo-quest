@@ -5,3 +5,11 @@
 .textCenter {
     text-align: center;
 }
+
+.hpBar {
+    display: flex;
+    width: 80vw;
+    height: 3vh;
+    background-color: red;
+    border-radius: 10px;
+}
