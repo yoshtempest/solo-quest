@@ -8,6 +8,7 @@ const ROUTES = {
     boss: '/boss',
     conquers: '/conquers',
     profile: '/profile',
+    diaryMissions: '/diaryMissions'
 };
 
 export default ROUTES;

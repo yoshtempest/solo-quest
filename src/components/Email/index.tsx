@@ -12,6 +12,7 @@ export default function Email({ value, onChange }: Props) {
             <div className="inputContainer">
                 <Mail />
                 <input
+                className="formInput"
                 type="email"
                 id="email"
                 name="email"

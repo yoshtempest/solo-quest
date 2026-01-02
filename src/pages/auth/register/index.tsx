@@ -16,6 +16,7 @@ export default function RegisterPage() {
                     <div className="inputContainer">
                         <User />
                         <input
+                        className="formInput"
                         type="text"
                         id="username"
                         name="username"

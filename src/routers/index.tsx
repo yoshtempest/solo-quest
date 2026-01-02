@@ -6,6 +6,7 @@ import HomePage from "@/pages/home";
 import BossPage from "@/pages/boss";
 import ConquersPage from "@/pages/conquers";
 import ProfilePage from "@/pages/profile";
+import DiaryPage from "@/pages/diaryMissions";
 
 export default function AllRoutes() {
     return (
@@ -16,6 +17,7 @@ export default function AllRoutes() {
             <Route path={ROUTES.boss} element={<BossPage />} />
             <Route path={ROUTES.conquers} element={<ConquersPage />} />
             <Route path={ROUTES.profile} element={<ProfilePage />} />
+            <Route path={ROUTES.diaryMissions} element={<DiaryPage />} />
         </Routes>
     )
 }

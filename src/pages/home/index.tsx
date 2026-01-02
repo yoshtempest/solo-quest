@@ -1,7 +1,10 @@
-import styles from './styles.module.css'
-import { CircleFadingArrowUp, ChevronRight, Flame, Award, Skull } from 'lucide-react'
+import styles from './styles.module.css';
+import { CircleFadingArrowUp, Flame, Award, Skull } from 'lucide-react';
+import ROUTES from '@/core/constants/routes';
+import { useNavigate } from 'react-router';
 
 export default function HomePage() {
+    const navigate = useNavigate();
     return (
         <div className="page">
             <div className="rowContainer">
@@ -36,8 +39,8 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <button>Missões Diárias<ChevronRight/></button>
-            <button>Missões Semanais<ChevronRight/></button>
+            <button onClick={() => navigate(ROUTES.diaryMissions)}>Missões Diárias</button>
+            <button>Missões Semanais</button>
         </div>
     )
 } 

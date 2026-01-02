@@ -17,6 +17,7 @@ export default function Password({ value, onChange }: Props) {
             <div className="inputContainer">
                 <Lock />
                 <input
+                className="formInput"
                 type={hidePassword ? "password" : "text"}
                 id="password"
                 name="password"
