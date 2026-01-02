@@ -26,6 +26,7 @@ export default function ProfilePage() {
                         alt="character"
                         className={styles.character}
                     />
+                <h3>Nível: 01</h3>
                 </div>
                 <div className={`columnContainer ${styles.spacement}`}>
                     {stats.map((stat) => (
@@ -34,20 +35,27 @@ export default function ProfilePage() {
                         <Plus className={styles.icon} />
                         </div>
                     ))}
+                    <button className={styles.button}>Confirmar</button>
                 </div>
             </div>
             <h3>Pontos disponíveis: 01</h3>
             <button>
-                <img src={IMAGES.guild} />
-                Criar uma guilda
+                <div className='rowContainer'>
+                    <img src={IMAGES.guild} />
+                    <h3>Criar uma guilda</h3>
+                </div>
             </button>
-            <button className={styles.gap}>
-                <UserPlus /> Adicionar Amigo
+            <button>
+                <div className='rowContainer'>
+                    <UserPlus /> 
+                    <h3>Adicionar Amigo</h3>
+                </div>
             </button>
-            <button
-                className={styles.gap}
-                onClick={() => navigate(ROUTES.auth.login)}>
-                <LogOut /> Sair
+            <button onClick={() => navigate(ROUTES.auth.login)}>
+                <div className='rowContainer'>
+                    <LogOut />
+                    <h3>Sair</h3>
+                </div>
             </button>
         </div>
     )
