@@ -1,9 +1,9 @@
 import styles from './styles.module.css';
-import DIARY_MISSIONS from '@/core/constants/missions';
+import DAILY_MISSIONS from '@/core/constants/missions';
 import { useState } from "react";
 
 export default function DiaryPage() {
-    const [missions, setMissions] = useState(DIARY_MISSIONS);
+    const [missions, setMissions] = useState(DAILY_MISSIONS);
 
     function toggleMission(id: string) {
         setMissions((prev) =>

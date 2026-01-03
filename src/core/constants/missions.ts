@@ -10,7 +10,7 @@ type Mission = {
     tasks: string[];
 };
 
-const DIARY_MISSIONS: Mission[] = [
+const DAILY_MISSIONS: Mission[] = [
     {
         id: "stretch",
         title: "Alongue-se",
@@ -81,4 +81,4 @@ const DIARY_MISSIONS: Mission[] = [
     }
 ];
 
-export default DIARY_MISSIONS;
+export default DAILY_MISSIONS;
