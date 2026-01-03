@@ -22,8 +22,9 @@
 }
 
 .justifyStart h4 {
-  width: 100%;
+  width: 95%;
   color: #f3f3f3;
+  padding-bottom: 1vh;
 }
 
 .justifyStart h2, h3 {
@@ -31,10 +32,14 @@
 }
 
 .justifyStart {
+  display: flex;
   width: 87vw;
+  background-color: #31124D;
+  border-radius: 10px;
+  height: 15vh;
 }
 
 .spacement {
-  width: 100%;
+  width: 95%;
   justify-content: space-between;
 }
