@@ -1,9 +1,9 @@
 import styles from './styles.module.css';
-import DAILY_MISSIONS from '@/core/constants/missions';
+import WEEKLY_MISSIONS from '@/core/constants/weekly';
 import { useState } from "react";
 
-export default function DiaryPage() {
-    const [missions, setMissions] = useState(DAILY_MISSIONS);
+export default function WeeklyPage() {
+    const [missions, setMissions] = useState(WEEKLY_MISSIONS);
 
     function toggleMission(id: string) {
         setMissions((prev) =>
@@ -16,7 +16,7 @@ export default function DiaryPage() {
     }
     return (
         <div className="page">
-            <h1>Missões Diárias</h1>
+            <h2>Missões Semanais</h2>
             {missions.map((mission) => {
                 const progress = mission.completed
                 ? `${mission.total}/${mission.total}${mission.unit}`

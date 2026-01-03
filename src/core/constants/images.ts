@@ -8,8 +8,11 @@ import guild from "@/assets/icons/guild.svg";
 import stretching from "@/assets/icons/stretching.svg";
 import lower from "@/assets/icons/lower.svg";
 import run from "@/assets/icons/run.svg";
-import abdominal from "@/assets/icons/abdominal.svg";
+import planche from "@/assets/icons/planche.svg";
 import pushUp from "@/assets/icons/push-up.svg";
+import abs from "@/assets/icons/abs.svg";
+import addicted from "@/assets/icons/addicted.svg";
+import squat from "@/assets/icons/squat.svg";
 
 const IMAGES = {
     home,
@@ -21,8 +24,11 @@ const IMAGES = {
     stretching,
     lower,
     run,
-    abdominal,
+    planche,
     pushUp,
+    abs,
+    addicted,
+    squat,
 }
 
 export default IMAGES;

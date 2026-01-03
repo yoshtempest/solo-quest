@@ -39,8 +39,8 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <button onClick={() => navigate(ROUTES.diaryMissions)}>Missões Diárias</button>
-            <button>Missões Semanais</button>
+            <button onClick={() => navigate(ROUTES.missions.daily)}>Missões Diárias</button>
+            <button onClick={() => navigate(ROUTES.missions.weekly)}>Missões Semanais</button>
         </div>
     )
 } 

@@ -10,18 +10,31 @@ type Mission = {
     tasks: string[];
 };
 
-const DAILY_MISSIONS: Mission[] = [
+const WEEKLY_MISSIONS: Mission[] = [
     {
         id: "stretch",
         title: "Alongue-se",
         image: IMAGES.stretching,
-        total: 5,
+        total: 45,
         unit: "min",
         completed: false,
         tasks: [
             "Alongamento lateral do pescoço",
             "Alongamento de braço cruzado no peito",
             "Panturrilha em pé (apoiado na parede)"
+        ]
+    },
+    {
+        id: "squat",
+        title: "Agachamento",
+        image: IMAGES.squat,
+        total: 80,
+        unit: "rep",
+        completed: false,
+        tasks: [
+            "Agachamento tradicional",
+            "Agachamento sumô",
+            "Agachamento com pausa (desce e  fica 2s)"
         ]
     },
     {
@@ -40,23 +53,23 @@ const DAILY_MISSIONS: Mission[] = [
     {
         id: "abs",
         title: "Abdômen",
-        image: IMAGES.abdominal,
-        total: 10,
-        unit: "min",
+        image: IMAGES.abs,
+        total: 100,
+        unit: "rep",
         completed: false,
 
         tasks: [
             "Abdominal tradicional",
-            "Prancha",
-            "Elevação de pernas deitado"
+            "Abdominal infra (elevação de pernas)",
+            "Abdominal com toque no calcanhar"
         ]
     },
     {
         id: "pushup",
         title: "Flexão",
         image: IMAGES.pushUp,
-        total: 100,
-        unit: "reps",
+        total: 500,
+        unit: "rep",
         completed: false,
 
         tasks: [
@@ -66,19 +79,33 @@ const DAILY_MISSIONS: Mission[] = [
         ]
     },
     {
-        id: "lower",
-        title: "Inferiores",
-        image: IMAGES.lower,
-        total: 100,
-        unit: "reps",
+        id: "planche",
+        title: "Prancha",
+        image: IMAGES.planche,
+        total: 10,
+        unit: "min",
         completed: false,
 
         tasks: [
-            "Elevação de panturrilha em pé",
-            "Elevação de quadril (ponte)",
-            "Avanço (passada) parado"
+            "Prancha tradicional",
+            "Prancha lateral",
+            "Prancha alta"
+        ]
+    },
+    {
+        id: "addicted",
+        title: "Viciado em treino",
+        image: IMAGES.addicted,
+        total: 5,
+        unit: "h",
+        completed: false,
+
+        tasks: [
+            "Treine até a exaustão sem interrupção",
+            "Complete 3 sessões de treino",
+            "Finalize um treino completo (corpo todo)"
         ]
     }
 ];
 
-export default DAILY_MISSIONS;
+export default WEEKLY_MISSIONS;

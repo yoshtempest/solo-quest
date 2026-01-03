@@ -8,7 +8,11 @@ const ROUTES = {
     boss: '/boss',
     conquers: '/conquers',
     profile: '/profile',
-    diaryMissions: '/diaryMissions'
+    missions: {
+        daily: 'missions/daily',
+        weekly: 'missions/weekly',
+    }
+
 };
 
 export default ROUTES;

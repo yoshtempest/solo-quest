@@ -6,7 +6,8 @@ import HomePage from "@/pages/home";
 import BossPage from "@/pages/boss";
 import ConquersPage from "@/pages/conquers";
 import ProfilePage from "@/pages/profile";
-import DiaryPage from "@/pages/diaryMissions";
+import DailyPage from "@/pages/missions/daily";
+import WeeklyPage from "@/pages/missions/weekly";
 
 export default function AllRoutes() {
     return (
@@ -17,7 +18,8 @@ export default function AllRoutes() {
             <Route path={ROUTES.boss} element={<BossPage />} />
             <Route path={ROUTES.conquers} element={<ConquersPage />} />
             <Route path={ROUTES.profile} element={<ProfilePage />} />
-            <Route path={ROUTES.diaryMissions} element={<DiaryPage />} />
+            <Route path={ROUTES.missions.daily} element={<DailyPage />} />
+            <Route path={ROUTES.missions.weekly} element={<WeeklyPage />} />
         </Routes>
     )
 }
