@@ -3,13 +3,20 @@
 }
 
 .textCenter {
+    margin-top: 5vh;
     text-align: center;
 }
 
-.hpBar {
-    display: flex;
-    width: 80vw;
-    height: 3vh;
-    background-color: red;
-    border-radius: 10px;
+.bossPage {
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  gap: 3vh;
+    background: linear-gradient(
+    225deg,
+    #F3F3F3 0%,
+    #111111 100%
+  );
+  flex-direction: column;
+  align-items: center;
 }
