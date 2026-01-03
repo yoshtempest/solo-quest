@@ -36,7 +36,7 @@ export default function WeeklyPage() {
                                 <h3>{progress}</h3>
                                 <input
                                     type="checkbox"
-                                    className={styles.checkBox}
+                                    className="checkBox"
                                     checked={mission.completed}
                                     onChange={() => toggleMission(mission.id)}
                                 />

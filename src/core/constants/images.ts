@@ -13,6 +13,9 @@ import pushUp from "@/assets/icons/push-up.svg";
 import abs from "@/assets/icons/abs.svg";
 import addicted from "@/assets/icons/addicted.svg";
 import squat from "@/assets/icons/squat.svg";
+import pushUp2 from "@/assets/icons/push-up2.svg";
+import dips from "@/assets/icons/dips.svg";
+import bar from "@/assets/icons/bar.svg";
 
 const IMAGES = {
     home,
@@ -29,6 +32,9 @@ const IMAGES = {
     abs,
     addicted,
     squat,
+    pushUp2,
+    dips,
+    bar,
 }
 
 export default IMAGES;

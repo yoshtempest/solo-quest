@@ -21,7 +21,6 @@ export default function DailyPage() {
                 const progress = mission.completed
                 ? `${mission.total}/${mission.total}${mission.unit}`
                 : `0/${mission.total}${mission.unit}`;
-
                 return (
                     <div
                         key={mission.id}
@@ -36,7 +35,7 @@ export default function DailyPage() {
                                 <h3>{progress}</h3>
                                 <input
                                     type="checkbox"
-                                    className={styles.checkBox}
+                                    className="checkBox"
                                     checked={mission.completed}
                                     onChange={() => toggleMission(mission.id)}
                                 />

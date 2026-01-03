@@ -1,8 +1,20 @@
 import styles from './styles.module.css'
 import { ChevronRight } from 'lucide-react'
-import IMAGES from '@/core/constants/images'
+import BOSS_MISSIONS from '@/core/constants/boss';
+import { useState } from "react";
 
 export default function BossPage() {
+    const [missions, setMissions] = useState(BOSS_MISSIONS);
+
+    function toggleMission(id: string) {
+        setMissions((prev) =>
+            prev.map((mission) =>
+                mission.id === id
+                    ? { ...mission, completed: !mission.completed }
+                    : mission
+            )
+        );
+    }
     return (
         <div className={styles.bossPage}>
             <div>
@@ -21,28 +33,40 @@ export default function BossPage() {
                 </div>
                 <h3 className={styles.textCenter}>Nível recomendado: 10</h3>
                 <button>Dificuldade: Fácil<ChevronRight/></button>
-                <div
-                    className={`columnContainer ${styles.justifyStart}`}
-                >
-                    <div className={`rowContainer ${styles.spacement}`}>
-                        <div className="rowContainer">
-                            <img src={IMAGES.pushUp} />
-                            <h3>Flexão</h3>
-                        </div>
-                        <div className="rowContainer">
-                            <h3>0/50reps</h3>
-                            <input
-                                type="checkbox"
-                                className={styles.checkBox}
-                            />
-                        </div>
-                    </div>
+                {missions.map((mission) => {
+                    const progress = mission.completed
+                    ? `${mission.total}/${mission.total}${mission.unit}`
+                    : `0/${mission.total}${mission.unit}`;
 
-                        <h4>1 - Flexão tradicional</h4>
-                        <h4>2 - Flexão com pegada aberta</h4>
-                        <h4>Flexão tradicional</h4>
-                    <hr />
-                </div>
+                    return (
+                        <div
+                            key={mission.id}
+                            className={`columnContainer ${styles.justifyStart}`}
+                        >
+                            <div className={`rowContainer ${styles.spacement}`}>
+                                <div className="rowContainer">
+                                    <img src={mission.image} />
+                                    <h3>{mission.title}</h3>
+                                </div>
+                                <div className="rowContainer">
+                                    <h3>{progress}</h3>
+                                    <input
+                                        type="checkbox"
+                                        className="checkBox"
+                                        checked={mission.completed}
+                                        onChange={() => toggleMission(mission.id)}
+                                    />
+                                </div>
+                            </div>
+                            {mission.tasks.map((task, index) => (
+                                <h4 key={index}>
+                                    {index + 1} - {task}
+                                </h4>
+                            ))}
+                            <hr />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     )
