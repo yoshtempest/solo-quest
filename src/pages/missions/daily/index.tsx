@@ -1,5 +1,6 @@
 import DAILY_MISSIONS from '@/core/constants/daily';
 import { useState } from "react";
+import ReturnHome from "@/components/ReturnHome"
 
 export default function DailyPage() {
     const [missions, setMissions] = useState(DAILY_MISSIONS);
@@ -15,7 +16,10 @@ export default function DailyPage() {
     }
     return (
         <div className="page">
-            <h1>Missões Diárias</h1>
+            <div className='rowContainer'>
+                <ReturnHome />
+                <h2>Missões Diárias</h2>
+            </div>
             {missions.map((mission) => {
                 const progress = mission.completed
                 ? `${mission.total}/${mission.total}${mission.unit}`

@@ -1,5 +1,6 @@
 import WEEKLY_MISSIONS from '@/core/constants/weekly';
 import { useState } from "react";
+import ReturnHome from "@/components/ReturnHome"
 
 export default function WeeklyPage() {
     const [missions, setMissions] = useState(WEEKLY_MISSIONS);
@@ -15,7 +16,10 @@ export default function WeeklyPage() {
     }
     return (
         <div className="page">
-            <h2>Missões Semanais</h2>
+            <div className='rowContainer'>
+                <ReturnHome />
+                <h2>Missões Semanais</h2>
+            </div>
             {missions.map((mission) => {
                 const progress = mission.completed
                 ? `${mission.total}/${mission.total}${mission.unit}`

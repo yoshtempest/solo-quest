@@ -1,5 +1,5 @@
 import styles from './styles.module.css';
-import { CircleFadingArrowUp, Flame, Award, Skull } from 'lucide-react';
+import { CircleFadingArrowUp, Flame, Award, Skull, CalendarFold, Annoyed } from 'lucide-react';
 import ROUTES from '@/core/constants/routes';
 import { useNavigate } from 'react-router';
 
@@ -39,8 +39,21 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <button onClick={() => navigate(ROUTES.missions.daily)}>Missões Diárias</button>
-            <button onClick={() => navigate(ROUTES.missions.weekly)}>Missões Semanais</button>
+            <button onClick={() => navigate(ROUTES.missions.daily)}>
+                <div className='rowContainer'>
+                    <CalendarFold />
+                    Missões Diárias
+                </div>
+            </button>
+            <button onClick={() => navigate(ROUTES.missions.weekly)}>
+                <div className='rowContainer'>
+                    <CalendarFold />
+                    Missões Semanais
+                </div>
+            </button>
+            <h2>Conquistas Adquiridas</h2>
+            <Annoyed className={styles.face}/>
+            <h3 className='textCenter'>Você ainda não adquiriu nenhuma conquista</h3>
         </div>
     )
 } 
