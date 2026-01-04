@@ -9,7 +9,10 @@ export default function WeeklyPage() {
                 <ReturnHome />
                 <h2>Missões Semanais</h2>
             </div>
-            <MissionList missionsData={WEEKLY_MISSIONS}/>
+            <MissionList 
+                missionsData={WEEKLY_MISSIONS}
+                containerClassName="justifyStart"
+            />
         </div>
     );
 }

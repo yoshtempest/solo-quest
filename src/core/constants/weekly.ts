@@ -34,7 +34,7 @@ const WEEKLY_MISSIONS: Mission[] = [
         tasks: [
             "Agachamento tradicional",
             "Agachamento sumô",
-            "Agachamento com pausa (desce e  fica 2s)"
+            "Agachamento pausado (desce e  fica 3s)"
         ]
     },
     {

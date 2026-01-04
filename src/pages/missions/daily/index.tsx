@@ -11,6 +11,7 @@ export default function DailyPage() {
             </div>
             <MissionList
                 missionsData={DAILY_MISSIONS}
+                containerClassName="justifyStart"
             />
         </div>
     );

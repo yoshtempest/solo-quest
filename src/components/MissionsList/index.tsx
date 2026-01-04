@@ -13,11 +13,15 @@ type Mission = {
 type MissionListProps = {
     missionsData: Mission[];
     checkboxClassName?: string;
+    containerClassName?: string;
+    showDivider?: boolean;
 };
 
 export default function MissionList({
     missionsData,
-    checkboxClassName
+    checkboxClassName,
+    containerClassName,
+    showDivider = true
 }: MissionListProps) {
     const [missions, setMissions] = useState(missionsData);
 
@@ -41,7 +45,9 @@ export default function MissionList({
                 return (
                     <div
                         key={mission.id}
-                        className="columnContainer justifyStart"
+                        className={`columnContainer ${
+                            containerClassName ?? ""
+                        }`}
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
@@ -68,7 +74,8 @@ export default function MissionList({
                                 {index + 1} - {task}
                             </h4>
                         ))}
-                        <hr />
+
+                        {showDivider && <hr />}
                     </div>
                 );
             })}
