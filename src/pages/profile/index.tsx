@@ -42,19 +42,19 @@ export default function ProfilePage() {
             <button>
                 <div className='rowContainer'>
                     <img src={IMAGES.guild} />
-                    <h3>Criar uma guilda</h3>
+                    Criar uma guilda
                 </div>
             </button>
             <button>
                 <div className='rowContainer'>
                     <UserPlus /> 
-                    <h3>Adicionar Amigo</h3>
+                    Adicionar Amigo
                 </div>
             </button>
             <button onClick={() => navigate(ROUTES.auth.login)}>
                 <div className='rowContainer'>
                     <LogOut />
-                    <h3>Sair</h3>
+                    Sair
                 </div>
             </button>
         </div>

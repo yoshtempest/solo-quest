@@ -11,7 +11,7 @@
   width: 100vw;
   display: flex;
   gap: 3vh;
-    background: linear-gradient(
+  background: linear-gradient(
     225deg,
     var(--background) 0%,
     #111111 100%

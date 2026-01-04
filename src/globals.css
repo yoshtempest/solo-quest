@@ -57,6 +57,7 @@ h3,
 h4,
 label {
   font-family: var(--inter);
+  color: var(--foreground);
 }
 
 h1 {

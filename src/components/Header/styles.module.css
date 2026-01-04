@@ -5,7 +5,6 @@
         #000 0%,
         #737373 50%,
         #560D0D 90%);
-    color: white;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -16,4 +15,5 @@
 
 .logoTitle {
     font-family: var(--irish-grover);
+    color: var(--background);
 }
