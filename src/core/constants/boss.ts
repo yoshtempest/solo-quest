@@ -27,7 +27,7 @@ const BOSS_MISSIONS: Mission[] = [
         tasks: [
             "Barra tradicional",
             "Barra isométrica (mantenha-se no topo)",
-            "Barra negativa (descida lenta)",
+            "Barra negativa (descida lenta)"
         ]
     },
     {
