@@ -176,7 +176,7 @@ hr {
   width: 90%;
 }
 
-.checkBox {
+input[type="checkbox"] {
     width: 6vw;
     height: 24px;
     border-radius: 5px;
@@ -189,20 +189,23 @@ hr {
     background-color: transparent;
     cursor: pointer;
 
+    display: grid;
     place-items: center;
 }
-.checkBox:checked {
-  background-color: #22c55e;
+
+input[type="checkbox"]:checked {
+    background-color: #22c55e;
 }
 
-.checkBox::after {
-  content: "✓";
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  display: none;
+input[type="checkbox"]::after {
+    content: "";
 }
 
-.checkBox:checked::after {
-  display: block;
+input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
 }
+
+

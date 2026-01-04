@@ -79,7 +79,7 @@ export default function BossPage() {
                                 <h3>{progress}</h3>
                                 <input
                                     type="checkbox"
-                                    className="checkBox"
+                                    className={styles.checkBox}
                                     checked={mission.completed}
                                     disabled={mission.completed}
                                     onChange={() => completeMission(mission.id)}
