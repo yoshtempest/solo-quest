@@ -5,11 +5,11 @@ import ReturnHome from "@/components/ReturnHome"
 export default function WeeklyPage() {
     const [missions, setMissions] = useState(WEEKLY_MISSIONS);
 
-    function toggleMission(id: string) {
+    function completeMission(id: string) {
         setMissions((prev) =>
             prev.map((mission) =>
                 mission.id === id
-                    ? { ...mission, completed: !mission.completed }
+                    ? { ...mission, completed: true}
                     : mission
             )
         );
@@ -41,7 +41,8 @@ export default function WeeklyPage() {
                                     type="checkbox"
                                     className="checkBox"
                                     checked={mission.completed}
-                                    onChange={() => toggleMission(mission.id)}
+                                    disabled={mission.completed}
+                                    onChange={() => completeMission(mission.id)}
                                 />
                             </div>
                         </div>

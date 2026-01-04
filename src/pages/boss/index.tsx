@@ -10,11 +10,11 @@ export default function BossPage() {
     const [difficulty, setDifficulty] = useState("Fácil");
     const difficulties = ["Fácil", "Médio", "Difícil", "Insano", "Impossível"];
 
-    function toggleMission(id: string) {
+    function completeMission(id: string) {
         setMissions((prev) =>
             prev.map((mission) =>
                 mission.id === id
-                    ? { ...mission, completed: !mission.completed }
+                    ? { ...mission, completed: true }
                     : mission
             )
         );
@@ -81,7 +81,8 @@ export default function BossPage() {
                                     type="checkbox"
                                     className="checkBox"
                                     checked={mission.completed}
-                                    onChange={() => toggleMission(mission.id)}
+                                    disabled={mission.completed}
+                                    onChange={() => completeMission(mission.id)}
                                 />
                             </div>
                         </div>
