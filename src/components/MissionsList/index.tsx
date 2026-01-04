@@ -1,15 +1,5 @@
 import { useState } from "react";
 
-type Mission = {
-    id: string;
-    title: string;
-    image: string;
-    total: number;
-    unit: string;
-    completed: boolean;
-    tasks: string[];
-};
-
 type MissionListProps = {
     missionsData: Mission[];
     checkboxClassName?: string;

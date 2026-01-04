@@ -1,14 +1,5 @@
 import IMAGES from "@/core/constants/images"
 
-type Mission = {
-    id: string;
-    title: string;
-    image: string;
-    total: number;
-    unit: string;
-    completed: boolean;
-    tasks: string[];
-};
 
 const WEEKLY_MISSIONS: Mission[] = [
     {
