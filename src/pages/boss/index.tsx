@@ -6,6 +6,10 @@ import { useState } from "react";
 export default function BossPage() {
     const [missions, setMissions] = useState(BOSS_MISSIONS);
 
+    const [difficultyOpen, setDifficultyOpen] = useState(false);
+    const [difficulty, setDifficulty] = useState("Fácil");
+    const difficulties = ["Fácil", "Médio", "Difícil", "Insano", "Impossível"];
+
     function toggleMission(id: string) {
         setMissions((prev) =>
             prev.map((mission) =>
@@ -31,7 +35,31 @@ export default function BossPage() {
                 />
             </div>
             <h3 className={styles.textCenter}>Nível recomendado: 10</h3>
-            <button>Dificuldade: Fácil<ChevronRight/></button>
+            <div>
+                <button onClick={() => setDifficultyOpen(!difficultyOpen)}>
+                    Dificuldade: {difficulty}
+                    <ChevronRight
+                        className={difficultyOpen ? styles.rotate : ""}
+                    />
+                </button>
+
+                {difficultyOpen && (
+                    <div>
+                        {difficulties.map((level) => (
+                            <button
+                                key={level}
+                                className={styles.option}
+                                onClick={() => {
+                                    setDifficulty(level);
+                                    setDifficultyOpen(false);
+                                }}
+                            >
+                                {level}
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
             {missions.map((mission) => {
                 const progress = mission.completed
                 ? `${mission.total}/${mission.total}${mission.unit}`
