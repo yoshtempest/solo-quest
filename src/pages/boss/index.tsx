@@ -42,7 +42,7 @@ export default function BossPage() {
                         key={mission.id}
                         className={`columnContainer ${styles.justifyStart}`}
                     >
-                        <div className={`rowContainer ${styles.spacement}`}>
+                        <div className="rowContainer spacement">
                             <div className="rowContainer">
                                 <img src={mission.image} />
                                 <h3>{mission.title}</h3>

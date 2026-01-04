@@ -1,4 +1,3 @@
-import styles from './styles.module.css';
 import WEEKLY_MISSIONS from '@/core/constants/weekly';
 import { useState } from "react";
 
@@ -25,9 +24,9 @@ export default function WeeklyPage() {
                 return (
                     <div
                         key={mission.id}
-                        className={`columnContainer ${styles.justifyStart}`}
+                        className="columnContainer justifyStart"
                     >
-                        <div className={`rowContainer ${styles.spacement}`}>
+                        <div className="rowContainer spacement">
                             <div className="rowContainer">
                                 <img src={mission.image} />
                                 <h3>{mission.title}</h3>

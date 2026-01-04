@@ -13,7 +13,7 @@
   gap: 3vh;
     background: linear-gradient(
     225deg,
-    #F3F3F3 0%,
+    var(--background) 0%,
     #111111 100%
   );
   flex-direction: column;
@@ -23,12 +23,12 @@
 
 .justifyStart h4 {
   width: 95%;
-  color: #f3f3f3;
   padding-bottom: 1vh;
+  color: var(--background)
 }
 
-.justifyStart h2, h3 {
-  color: #f3f3f3;
+.justifyStart h3 {
+  color: var(--background);
 }
 
 .justifyStart {
@@ -37,9 +37,4 @@
   background-color: #31124D;
   border-radius: 10px;
   height: 15vh;
-}
-
-.spacement {
-  width: 95%;
-  justify-content: space-between;
 }

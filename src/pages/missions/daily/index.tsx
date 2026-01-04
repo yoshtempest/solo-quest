@@ -1,4 +1,3 @@
-import styles from './styles.module.css';
 import DAILY_MISSIONS from '@/core/constants/daily';
 import { useState } from "react";
 
@@ -24,9 +23,9 @@ export default function DailyPage() {
                 return (
                     <div
                         key={mission.id}
-                        className={`columnContainer ${styles.justifyStart}`}
+                        className="columnContainer justifyStart"
                     >
-                        <div className={`rowContainer ${styles.spacement}`}>
+                        <div className="rowContainer spacement">
                             <div className="rowContainer">
                                 <img src={mission.image} />
                                 <h3>{mission.title}</h3>
