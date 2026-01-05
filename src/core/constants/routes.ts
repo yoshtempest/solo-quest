@@ -9,8 +9,8 @@ const ROUTES = {
     conquers: '/conquers',
     profile: '/profile',
     missions: {
-        daily: 'missions/daily',
-        weekly: 'missions/weekly',
+        daily: '/missions/daily',
+        weekly: '/missions/weekly',
     }
 
 };
