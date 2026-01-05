@@ -1,0 +1,9 @@
+.rotate {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.option {
+  border-radius: 0px;
+  background-color: #e73939;
+}

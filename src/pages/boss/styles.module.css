@@ -39,16 +39,6 @@
   height: 15vh;
 }
 
-.rotate {
-  transform: rotate(90deg);
-  transition: transform 0.3s ease;
-}
-
-.option {
-  border-radius: 0px;
-  background-color: #e73939;
-}
-
 input[type="checkbox"].checkBox {
     border: 1px solid white;
 }
