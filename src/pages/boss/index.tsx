@@ -1,5 +1,6 @@
 import styles from './styles.module.css'
 import BOSS_MISSIONS from '@/core/constants/boss';
+import Poppup from "@/components/Poppup";
 import MissionList from '@/components/MissionsList';
 import DifficultySelector from '@/components/DifficultySelector';
 import { useState } from "react";
@@ -7,22 +8,28 @@ import { DIFFICULTY_ORDER } from "@/core/constants/difficulty";
 import type { Difficulty } from "@/core/constants/difficulty";
 
 export default function BossPage() {
+    const [poppupVisible, setPoppupVisible] = useState(false);
+    const [poppupMessage, setPoppupMessage] = useState("");
+
     const [bossLevel, setBossLevel] = useState(10);
     const [difficulty, setDifficulty] = useState<Difficulty>("Fácil");
     const [unlockedUntil, setUnlockedUntil] = useState<Difficulty>("Fácil");
 
-    function unlockNextDifficulty(
-        currentDifficulty: Difficulty,
-        unlockedUntil: Difficulty,
-        setUnlockedUntil: (d: Difficulty) => void
-    ) {
-        if (currentDifficulty !== unlockedUntil) return;
-        const currentIndex = DIFFICULTY_ORDER.indexOf(unlockedUntil);
-        const next = DIFFICULTY_ORDER[currentIndex + 1];
+    function allMissionsCompleted() {
+        const currentIndex = DIFFICULTY_ORDER.indexOf(difficulty);
+        const unlockedIndex = DIFFICULTY_ORDER.indexOf(unlockedUntil);
 
-        if (next) {
-            setUnlockedUntil(next);
-        }
+        // 🔒 Impede pular dificuldade repetindo fases antigas
+        if (currentIndex !== unlockedIndex) return;
+
+        const nextDifficulty = DIFFICULTY_ORDER[currentIndex + 1];
+        if (!nextDifficulty) return;
+
+        setUnlockedUntil(nextDifficulty);
+
+        // 🔔 POPUP AUTOMÁTICO
+        setPoppupMessage(`Dificuldade liberada: ${nextDifficulty}`);
+        setPoppupVisible(true);
     }
     return (
         <div className={styles.bossPage}>
@@ -54,11 +61,12 @@ export default function BossPage() {
                 checkboxClassName={styles.checkBox}
                 containerClassName={styles.justifyStart}
                 showDivider={false}
-                onAllCompleted={() => unlockNextDifficulty(
-                    difficulty,
-                    unlockedUntil,
-                    setUnlockedUntil
-                )}
+                onAllCompleted={allMissionsCompleted}
+            />
+            <Poppup
+                message={poppupMessage}
+                visible={poppupVisible}
+                onClose={() => setPoppupVisible(false)}
             />
         </div>
     )

@@ -1,0 +1,32 @@
+.poppup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 12vh;
+    left: 50%;
+    width: 94vw;
+    height: 6vh;
+    transform: translateX(-50%);
+    background-color: var(--main-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(80, 80, 80, 0.4);
+    animation: slideUp 0.3s ease;
+    z-index: 9999;
+}
+
+.poppup h3 {
+    color: var(--background);
+    padding: 10px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
