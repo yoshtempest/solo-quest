@@ -6,4 +6,11 @@
 .option {
   border-radius: 0px;
   background-color: #e73939;
+  /* display:flex;
+  justify-content: space-between; */
+}
+
+.option:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }

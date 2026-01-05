@@ -1,8 +1,16 @@
 import { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, LockKeyhole } from "lucide-react";
 import styles from "./styles.module.css";
 
-type Difficulty = "Fácil" | "Médio" | "Difícil" | "Insano" | "Impossível";
+const DIFFICULTY_ORDER = [
+    "Fácil",
+    "Médio",
+    "Difícil",
+    "Insano",
+    "Impossível"
+] as const;
+
+type Difficulty = typeof DIFFICULTY_ORDER[number];
 
 const DIFFICULTY_LEVEL: Record<Difficulty, number> = {
     Fácil: 10,
@@ -12,24 +20,19 @@ const DIFFICULTY_LEVEL: Record<Difficulty, number> = {
     Impossível: 99
 };
 
-type DifficultySelectorProps = {
+interface Props {
     value: Difficulty;
+    unlockedUntil: Difficulty;
     onChange: (difficulty: Difficulty, level: number) => void;
 };
 
 export default function DifficultySelector({
     value,
+    unlockedUntil,
     onChange
-}: DifficultySelectorProps) {
+}: Props) {
+    const unlockedIndex = DIFFICULTY_ORDER.indexOf(unlockedUntil);
     const [open, setOpen] = useState(false);
-
-    const difficulties: Difficulty[] = [
-        "Fácil",
-        "Médio",
-        "Difícil",
-        "Insano",
-        "Impossível"
-    ];
 
     function handleSelect(difficulty: Difficulty) {
         onChange(difficulty, DIFFICULTY_LEVEL[difficulty]);
@@ -45,15 +48,19 @@ export default function DifficultySelector({
 
             {open && (
                 <div>
-                    {difficulties.map((level) => (
-                        <button
-                            key={level}
-                            className={styles.option}
-                            onClick={() => handleSelect(level)}
-                        >
-                            {level}
-                        </button>
-                    ))}
+                    {DIFFICULTY_ORDER.map((level, index) => {
+                        const locked = index > unlockedIndex;
+                        return (
+                            <button
+                                key={level}
+                                className={styles.option}
+                                disabled={locked}
+                                onClick={() => handleSelect(level)}
+                            >
+                                {locked && <LockKeyhole />} {level}
+                            </button>
+                        );
+                    })}
                 </div>
             )}
         </div>

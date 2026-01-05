@@ -9,7 +9,8 @@ type Difficulty = "Fácil" | "Médio" | "Difícil" | "Insano" | "Impossível";
 export default function BossPage() {
     const [bossLevel, setBossLevel] = useState(10);
     const [difficulty, setDifficulty] = useState<Difficulty>("Fácil");
-
+    const [unlockedUntil] = useState<Difficulty>("Fácil");
+// setUnlockedUntil, serveria quando todas as missões estiverem completas
     return (
         <div className={styles.bossPage}>
             <div className="columnContainer">
@@ -28,6 +29,7 @@ export default function BossPage() {
             <h3 className={styles.textCenter}>Nível recomendado: {bossLevel}</h3>
             <DifficultySelector
                 value={difficulty}
+                unlockedUntil={unlockedUntil}
                 onChange={(newDifficulty, level) => {
                     setDifficulty(newDifficulty);
                     setBossLevel(level);
