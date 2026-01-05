@@ -6,11 +6,15 @@
 .option {
   border-radius: 0px;
   background-color: #e73939;
-  /* display:flex;
-  justify-content: space-between; */
 }
 
 .option:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
+  filter: brightness(0.6);
+  cursor: not-allowed;
+}
+
+.justifyContent {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
 }

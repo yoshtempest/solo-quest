@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronRight, LockKeyhole } from "lucide-react";
+import { ChevronRight, LockKeyhole, LockKeyholeOpen } from "lucide-react";
 import styles from "./styles.module.css";
 
 const DIFFICULTY_ORDER = [
@@ -57,7 +57,11 @@ export default function DifficultySelector({
                                 disabled={locked}
                                 onClick={() => handleSelect(level)}
                             >
-                                {locked && <LockKeyhole />} {level}
+                                <div className={styles.justifyContent}>
+                                    {level}
+                                    {locked ? <LockKeyhole /> : <LockKeyholeOpen />}
+                                </div>
+
                             </button>
                         );
                     })}
