@@ -46,7 +46,6 @@ export default function DifficultySelector({
                                     {level}
                                     {locked ? <LockKeyhole /> : <LockKeyholeOpen />}
                                 </div>
-
                             </button>
                         );
                     })}

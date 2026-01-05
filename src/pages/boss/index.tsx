@@ -11,7 +11,12 @@ export default function BossPage() {
     const [difficulty, setDifficulty] = useState<Difficulty>("Fácil");
     const [unlockedUntil, setUnlockedUntil] = useState<Difficulty>("Fácil");
 
-    function unlockNextDifficulty() {
+    function unlockNextDifficulty(
+        currentDifficulty: Difficulty,
+        unlockedUntil: Difficulty,
+        setUnlockedUntil: (d: Difficulty) => void
+    ) {
+        if (currentDifficulty !== unlockedUntil) return;
         const currentIndex = DIFFICULTY_ORDER.indexOf(unlockedUntil);
         const next = DIFFICULTY_ORDER[currentIndex + 1];
 
@@ -44,11 +49,16 @@ export default function BossPage() {
                 }}
             />
             <MissionList 
+                key={difficulty}
                 missionsData={BOSS_MISSIONS}
                 checkboxClassName={styles.checkBox}
                 containerClassName={styles.justifyStart}
                 showDivider={false}
-                onAllCompleted={unlockNextDifficulty}
+                onAllCompleted={() => unlockNextDifficulty(
+                    difficulty,
+                    unlockedUntil,
+                    setUnlockedUntil
+                )}
             />
         </div>
     )
