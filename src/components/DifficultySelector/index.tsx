@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronRight, LockKeyhole, LockKeyholeOpen } from "lucide-react";
 import styles from "./styles.module.css";
 
-const DIFFICULTY_ORDER = [
+export const DIFFICULTY_ORDER = [
     "Fácil",
     "Médio",
     "Difícil",
@@ -10,9 +10,9 @@ const DIFFICULTY_ORDER = [
     "Impossível"
 ] as const;
 
-type Difficulty = typeof DIFFICULTY_ORDER[number];
+export type Difficulty = typeof DIFFICULTY_ORDER[number];
 
-const DIFFICULTY_LEVEL: Record<Difficulty, number> = {
+export const DIFFICULTY_LEVEL: Record<Difficulty, number> = {
     Fácil: 10,
     Médio: 25,
     Difícil: 50,
