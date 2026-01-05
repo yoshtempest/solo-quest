@@ -1,5 +1,7 @@
+export {};
+
 declare global {
-    type Mission = {
+    interface Mission {
         id: string;
         title: string;
         image: string;
@@ -9,5 +11,3 @@ declare global {
         tasks: string[];
     };
 }
-
-export {};

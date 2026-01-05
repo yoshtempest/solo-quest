@@ -1,24 +1,9 @@
 import { useState } from "react";
 import { ChevronRight, LockKeyhole, LockKeyholeOpen } from "lucide-react";
 import styles from "./styles.module.css";
+import { DIFFICULTY_ORDER, DIFFICULTY_LEVEL } from "@/core/constants/difficulty";
+import type { Difficulty } from "@/core/constants/difficulty";
 
-export const DIFFICULTY_ORDER = [
-    "Fácil",
-    "Médio",
-    "Difícil",
-    "Insano",
-    "Impossível"
-] as const;
-
-export type Difficulty = typeof DIFFICULTY_ORDER[number];
-
-export const DIFFICULTY_LEVEL: Record<Difficulty, number> = {
-    Fácil: 10,
-    Médio: 25,
-    Difícil: 50,
-    Insano: 75,
-    Impossível: 99
-};
 
 interface Props {
     value: Difficulty;

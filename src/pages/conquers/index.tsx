@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import IMAGES from "@/core/constants/images";
-import { DIFFICULTY_ORDER } from '@/components/DifficultySelector/index'
+import { DIFFICULTY_ORDER } from '@/core/constants/difficulty'
 
 export default function ConquersPage() {
     return (
