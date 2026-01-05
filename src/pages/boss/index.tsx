@@ -3,14 +3,22 @@ import BOSS_MISSIONS from '@/core/constants/boss';
 import MissionList from '@/components/MissionsList';
 import DifficultySelector from '@/components/DifficultySelector';
 import { useState } from "react";
-
-type Difficulty = "Fácil" | "Médio" | "Difícil" | "Insano" | "Impossível";
+import { DIFFICULTY_ORDER } from "@/core/constants/difficulty";
+import type { Difficulty } from "@/core/constants/difficulty";
 
 export default function BossPage() {
     const [bossLevel, setBossLevel] = useState(10);
     const [difficulty, setDifficulty] = useState<Difficulty>("Fácil");
-    const [unlockedUntil] = useState<Difficulty>("Fácil");
-// setUnlockedUntil, serveria quando todas as missões estiverem completas
+    const [unlockedUntil, setUnlockedUntil] = useState<Difficulty>("Fácil");
+
+    function unlockNextDifficulty() {
+        const currentIndex = DIFFICULTY_ORDER.indexOf(unlockedUntil);
+        const next = DIFFICULTY_ORDER[currentIndex + 1];
+
+        if (next) {
+            setUnlockedUntil(next);
+        }
+    }
     return (
         <div className={styles.bossPage}>
             <div className="columnContainer">
@@ -40,6 +48,7 @@ export default function BossPage() {
                 checkboxClassName={styles.checkBox}
                 containerClassName={styles.justifyStart}
                 showDivider={false}
+                onAllCompleted={unlockNextDifficulty}
             />
         </div>
     )

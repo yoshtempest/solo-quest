@@ -1,28 +1,40 @@
 import { useState } from "react";
 
-type MissionListProps = {
+interface Props {
     missionsData: Mission[];
     checkboxClassName?: string;
     containerClassName?: string;
     showDivider?: boolean;
+    onAllCompleted?: () => void;
 };
 
 export default function MissionList({
     missionsData,
     checkboxClassName,
     containerClassName,
-    showDivider = true
-}: MissionListProps) {
+    showDivider = true,
+    onAllCompleted,
+}: Props) {
     const [missions, setMissions] = useState(missionsData);
 
     function completeMission(id: string) {
-        setMissions((prev) =>
-            prev.map((mission) =>
+        setMissions((prev) => {
+            const updated = prev.map((mission) =>
                 mission.id === id
                     ? { ...mission, completed: true }
                     : mission
-            )
-        );
+            );
+
+            const allCompleted = updated.every(
+                (mission) => mission.completed
+            );
+
+            if (allCompleted) {
+                onAllCompleted?.(); // 👈 dispara só se existir
+            }
+
+            return updated;
+        });
     }
 
     return (
