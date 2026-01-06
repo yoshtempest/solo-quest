@@ -35,11 +35,14 @@ export default function BossPage() {
         <div className={styles.bossPage}>
             <div className="columnContainer">
                 <h3 className={styles.textCenter}>Leônidas, o Guerreiro - Nv {bossLevel}</h3>
-                <img
-                    src="/src/assets/bosshp.svg"
-                    alt="Leonidas"
-                    className={styles.boss}
-                />
+                <div className={styles.hpWrapper}>
+                    <div className={styles.hpBar} style={{ width: '60%' }} />
+                    <img
+                        src="/src/assets/bosshp3.svg"
+                        alt="Leonidas"
+                        className={styles.dragon}
+                    />
+                </div>
                 <img
                     src="/src/assets/leonidas.svg"
                     alt="Leonidas"
