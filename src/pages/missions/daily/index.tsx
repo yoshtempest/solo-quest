@@ -1,8 +1,11 @@
 import DAILY_MISSIONS from '@/core/constants/daily';
 import MissionList from "@/components/MissionsList";
-import ReturnHome from "@/components/ReturnHome"
+import ReturnHome from "@/components/ReturnHome";
+import Poppup from "@/components/Poppup";
+import { usePopup } from "@/hooks/usePoppup";
 
 export default function DailyPage() {
+    const poppup = usePopup();
     return (
         <div className="page">
             <div className='rowContainer'>
@@ -11,7 +14,16 @@ export default function DailyPage() {
             </div>
             <MissionList
                 missionsData={DAILY_MISSIONS}
-                containerClassName="justifyStart"
+                onMissionCompleted={(mission) => {
+                    poppup.open(
+                        `Missão "${mission.title}" concluída, você ganhou 10xp`
+                    );
+                }}
+            />
+            <Poppup 
+                message={poppup.message}
+                visible={poppup.visible}
+                onClose={poppup.close}
             />
         </div>
     );

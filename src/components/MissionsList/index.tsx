@@ -7,15 +7,17 @@ interface Props {
     showDivider?: boolean;
     onProgressChange?: (completed: number, total: number) => void;
     onAllCompleted?: () => void;
+    onMissionCompleted?: (mission: Mission) => void;
 };
 
 export default function MissionList({
     missionsData,
     checkboxClassName,
-    containerClassName,
+    containerClassName = "justifyStart",
     showDivider = true,
     onProgressChange,
     onAllCompleted,
+    onMissionCompleted
 }: Props) {
     const [missions, setMissions] = useState(missionsData);
 
@@ -26,6 +28,15 @@ export default function MissionList({
                     ? { ...mission, completed: true }
                     : mission
             );
+
+            const completedMission = prev.find(
+                (mission) => mission.id === id
+            );
+
+            
+            if (completedMission) {
+                onMissionCompleted?.(completedMission);
+            }
 
             const completedCount = updated.filter(
                 (mission) => mission.completed
