@@ -1,50 +1,43 @@
 import styles from './styles.module.css'
-import BOSS_MISSIONS from '@/core/constants/boss';
-import Poppup from "@/components/Poppup";
-import MissionList from '@/components/MissionsList';
-import DifficultySelector from '@/components/DifficultySelector';
-import { useState } from "react";
-import { DIFFICULTY_ORDER } from "@/core/constants/difficulty";
-import type { Difficulty } from "@/core/constants/difficulty";
+import BOSS_MISSIONS from '@/core/constants/boss'
+import Poppup from "@/components/Poppup"
+import MissionList from '@/components/MissionsList'
+import DifficultySelector from '@/components/DifficultySelector'
+import { useState } from "react"
+import { useBossProgression } from '@/hooks/useBossProgression'
+import { usePopup } from '@/hooks/usePoppup'
+
 
 export default function BossPage() {
-    const [poppupVisible, setPoppupVisible] = useState(false);
-    const [poppupMessage, setPoppupMessage] = useState("");
+    const poppup = usePopup();
+    const {
+        difficulty,
+        unlockedUntil,
+        setDifficulty,
+        onAllMissionsCompleted
+    } = useBossProgression();
 
     const [bossLevel, setBossLevel] = useState(10);
-    const [difficulty, setDifficulty] = useState<Difficulty>("Fácil");
-    const [unlockedUntil, setUnlockedUntil] = useState<Difficulty>("Fácil");
-
     const [completedMissions, setCompletedMissions] = useState(0);
     const [totalMissions, setTotalMissions] = useState(0);
+
     const hpPercentage = totalMissions === 0 ? 60 : 60 - (completedMissions / totalMissions) * 60;
 
-    function allMissionsCompleted() {
-        const currentIndex = DIFFICULTY_ORDER.indexOf(difficulty);
-        const unlockedIndex = DIFFICULTY_ORDER.indexOf(unlockedUntil);
-
-        if (currentIndex !== unlockedIndex) return;
-
-        const nextDifficulty = DIFFICULTY_ORDER[currentIndex + 1];
-        if (!nextDifficulty) return;
-
-        setUnlockedUntil(nextDifficulty);
-
-        setPoppupMessage(`Dificuldade liberada: ${nextDifficulty}`);
-        setPoppupVisible(true);
-    }
     return (
         <div className={styles.bossPage}>
             <div className="columnContainer">
-                <h3 className={styles.textCenter}>Leônidas, o Guerreiro - Nv {bossLevel}</h3>
+                <h3 className={styles.textCenter}>
+                    Leônidas, o Guerreiro - Nv {bossLevel}
+                </h3>
                 <div className={styles.hpWrapper}>
                     <div
                         className={styles.hpBar}
                         style={{
                             width: `${hpPercentage}%`,
-                            background: hpPercentage === 0
-                            ? "linear-gradient(to left, #FF0000, red)"
-                            : "linear-gradient(to left, red, darkred)"
+                            background:
+                                hpPercentage === 0
+                                    ? "linear-gradient(to left, #FF0000, red)"
+                                    : "linear-gradient(to left, red, darkred)",
                         }}
                     />
                     <img
@@ -59,7 +52,9 @@ export default function BossPage() {
                     className={styles.boss}
                 />
             </div>
-            <h3 className={styles.textCenter}>Nível recomendado: {bossLevel}</h3>
+            <h3 className={styles.textCenter}>
+                Nível recomendado: {bossLevel}
+            </h3>
             <DifficultySelector
                 value={difficulty}
                 unlockedUntil={unlockedUntil}
@@ -69,7 +64,7 @@ export default function BossPage() {
                     setCompletedMissions(0);
                 }}
             />
-            <MissionList 
+            <MissionList
                 key={difficulty}
                 missionsData={BOSS_MISSIONS}
                 checkboxClassName={styles.checkBox}
@@ -79,13 +74,13 @@ export default function BossPage() {
                     setCompletedMissions(completed);
                     setTotalMissions(total);
                 }}
-                onAllCompleted={allMissionsCompleted}
+                onAllCompleted={() => onAllMissionsCompleted(poppup.open)}
             />
             <Poppup
-                message={poppupMessage}
-                visible={poppupVisible}
-                onClose={() => setPoppupVisible(false)}
+                message={poppup.message}
+                visible={poppup.visible}
+                onClose={poppup.close}
             />
         </div>
-    )
-} 
+    );
+}
