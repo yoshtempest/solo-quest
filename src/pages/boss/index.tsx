@@ -15,11 +15,14 @@ export default function BossPage() {
     const [difficulty, setDifficulty] = useState<Difficulty>("Fácil");
     const [unlockedUntil, setUnlockedUntil] = useState<Difficulty>("Fácil");
 
+    const [completedMissions, setCompletedMissions] = useState(0);
+    const [totalMissions, setTotalMissions] = useState(0);
+    const hpPercentage = totalMissions === 0 ? 60 : 60 - (completedMissions / totalMissions) * 60;
+
     function allMissionsCompleted() {
         const currentIndex = DIFFICULTY_ORDER.indexOf(difficulty);
         const unlockedIndex = DIFFICULTY_ORDER.indexOf(unlockedUntil);
 
-        // 🔒 Impede pular dificuldade repetindo fases antigas
         if (currentIndex !== unlockedIndex) return;
 
         const nextDifficulty = DIFFICULTY_ORDER[currentIndex + 1];
@@ -27,7 +30,6 @@ export default function BossPage() {
 
         setUnlockedUntil(nextDifficulty);
 
-        // 🔔 POPUP AUTOMÁTICO
         setPoppupMessage(`Dificuldade liberada: ${nextDifficulty}`);
         setPoppupVisible(true);
     }
@@ -36,7 +38,15 @@ export default function BossPage() {
             <div className="columnContainer">
                 <h3 className={styles.textCenter}>Leônidas, o Guerreiro - Nv {bossLevel}</h3>
                 <div className={styles.hpWrapper}>
-                    <div className={styles.hpBar} style={{ width: '60%' }} />
+                    <div
+                        className={styles.hpBar}
+                        style={{
+                            width: `${hpPercentage}%`,
+                            background: hpPercentage === 0
+                            ? "linear-gradient(to left, #FF0000, red)"
+                            : "linear-gradient(to left, red, darkred)"
+                        }}
+                    />
                     <img
                         src="/src/assets/bosshp3.svg"
                         alt="Leonidas"
@@ -56,6 +66,7 @@ export default function BossPage() {
                 onChange={(newDifficulty, level) => {
                     setDifficulty(newDifficulty);
                     setBossLevel(level);
+                    setCompletedMissions(0);
                 }}
             />
             <MissionList 
@@ -64,6 +75,10 @@ export default function BossPage() {
                 checkboxClassName={styles.checkBox}
                 containerClassName={styles.justifyStart}
                 showDivider={false}
+                onProgressChange={(completed, total) => {
+                    setCompletedMissions(completed);
+                    setTotalMissions(total);
+                }}
                 onAllCompleted={allMissionsCompleted}
             />
             <Poppup

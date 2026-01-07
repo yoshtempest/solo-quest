@@ -46,10 +46,11 @@ input[type="checkbox"].checkBox {
 .hpBar {
   position: absolute;
   height: 22%;
+  left: 20%;
   border-radius: 1000px;
-  background: linear-gradient(to left, red);
   z-index: 1;
   margin-top: 8%;
+  transition: background 0.4s ease, width 2s ease;
 }
 
 .hpWrapper {
