@@ -28,20 +28,17 @@ export default function MissionList({
                     ? { ...mission, completed: true }
                     : mission
             );
-
             const completedMission = prev.find(
                 (mission) => mission.id === id
             );
-
             
             if (completedMission) {
                 onMissionCompleted?.(completedMission);
             }
-
+            
             const completedCount = updated.filter(
                 (mission) => mission.completed
             ).length;
-
             const total = updated.length
 
             onProgressChange?.(completedCount, total);

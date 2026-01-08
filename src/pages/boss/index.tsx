@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from "react"
 import { useBossProgression } from '@/hooks/useBossProgression'
 import { usePopup } from '@/hooks/usePoppup'
 import { usePlayer } from "@/PlayerProgressionContext";
+import { BOSS_XP_REWARD } from "@/core/constants/xpRewards";
 
 
 export default function BossPage() {
@@ -35,13 +36,16 @@ export default function BossPage() {
         if (hpPercentage === 0 && !bossDefeatedRef.current) {
             bossDefeatedRef.current = true;
             onBossDefeated();
-            gainXp(50);
+            const xpReward = BOSS_XP_REWARD[difficulty];
+            gainXp(xpReward);
+
+            poppup.open(`Recompensa pela vitória: ${xpReward}xp`, 3);
         }
 
         if (hpPercentage > 0) {
             bossDefeatedRef.current = false;
         }
-    }, [hpPercentage]);
+    }, [hpPercentage, difficulty]);
 
     return (
         <div className={styles.bossPage}>
@@ -94,7 +98,12 @@ export default function BossPage() {
                     setCompletedMissions(completed);
                     setTotalMissions(total);
                 }}
-                onAllCompleted={() => onAllMissionsCompleted(poppup.open)}
+                onAllCompleted={() => {
+                    const unlocked = onAllMissionsCompleted();
+                    if (unlocked) {
+                        poppup.open(`Dificuldade liberada: ${unlocked}`, 1);
+                    }
+                }}
             />
             <Poppup
                 message={poppup.message}

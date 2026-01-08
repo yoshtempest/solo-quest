@@ -1,17 +1,38 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
+
+interface Props {
+    message: string;
+    priority: number;
+}
 
 export function usePopup() {
-    const [visible, setVisible] = useState(false);
-    const [message, setMessage] = useState("");
+    const [queue, setQueue] = useState<Props[]>([]);
+    const [current, setCurrent] = useState<Props | null>(null);
 
-    function open(msg: string) {
-        setMessage(msg);
-        setVisible(true);
-    }
+    const open = useCallback((message: string, priority = 2) => {
+        setQueue(prev =>
+            [...prev, { message, priority }]
+                .sort((a, b) => a.priority - b.priority)
+        );
+    }, []);
 
-    function close() {
-        setVisible(false);
-    }
+    const close = useCallback(() => {
+        setCurrent(null);
+    }, []);
 
-    return { visible, message, open, close };
+    // sempre que não houver popup ativo, puxa o próximo da fila
+    useEffect(() => {
+        if (!current && queue.length > 0) {
+            const [next, ...rest] = queue;
+            setCurrent(next);
+            setQueue(rest);
+        }
+    })
+
+    return {
+        visible: !!current,
+        message: current?.message ?? "",
+        open,
+        close
+    };
 }

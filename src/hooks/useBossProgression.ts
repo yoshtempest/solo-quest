@@ -6,7 +6,7 @@ export function useBossProgression() {
     const [difficulty, setDifficulty] = useState<Difficulty>("Fácil");
     const [unlockedUntil, setUnlockedUntil] = useState<Difficulty>("Fácil");
 
-    function onAllMissionsCompleted(onUnlock: (msg: string) => void) {
+    function onAllMissionsCompleted() {
         const currentIndex = DIFFICULTY_ORDER.indexOf(difficulty);
         const unlockedIndex = DIFFICULTY_ORDER.indexOf(unlockedUntil);
 
@@ -16,7 +16,7 @@ export function useBossProgression() {
         if (!nextDifficulty) return;
 
         setUnlockedUntil(nextDifficulty);
-        onUnlock(`Dificuldade liberada: ${nextDifficulty}`);
+        return nextDifficulty;
     }
 
     return {

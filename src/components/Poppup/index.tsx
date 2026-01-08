@@ -11,7 +11,7 @@ interface Props {
 export default function Poppup({
     message,
     visible,
-    duration = 5000,
+    duration = 3000,
     onClose
 }: Props) {
 

@@ -23,14 +23,14 @@ export function usePlayerProgression() {
         // level up
         if (result.level > level) {
             poppup.open(
-                `Você subiu para o nível ${String(result.level).padStart(2, "0")}!`
+                `Você subiu para o nível ${String(result.level).padStart(2, "0")}!`, 1
             );
         }
 
         // rank up
         const newRank = getRankByLevel(result.level);
         if (newRank !== previousRankRef.current) {
-            poppup.open(`Novo ranque alcançado: ${newRank}!`);
+            poppup.open(`Novo ranque alcançado: ${newRank}!`, 2);
             previousRankRef.current = newRank;
         }
 
@@ -51,7 +51,6 @@ export function usePlayerProgression() {
 
     function onBossDefeated() {
         setBossesDefeated(prev => prev + 1);
-        poppup.open("Boss derrotado!");
     }
 
     return {
