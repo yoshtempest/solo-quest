@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Props {
     missionsData: Mission[];
@@ -20,6 +20,7 @@ export default function MissionList({
     onMissionCompleted
 }: Props) {
     const [missions, setMissions] = useState(missionsData);
+    const allCompletedRef = useRef(false);
 
     function completeMission(id: string) {
         setMissions((prev) => {
@@ -29,27 +30,35 @@ export default function MissionList({
                     : mission
             );
             const completedMission = prev.find(
-                (mission) => mission.id === id
+                mission => mission.id === id
             );
             
             if (completedMission) {
                 onMissionCompleted?.(completedMission);
             }
-            
-            const completedCount = updated.filter(
-                (mission) => mission.completed
-            ).length;
-            const total = updated.length
-
-            onProgressChange?.(completedCount, total);
-
-            if (completedCount === total) {
-                onAllCompleted?.();
-            }
 
             return updated;
         });
     }
+    useEffect(() => {
+        const completedCount = missions.filter(m => m.completed).length;
+        const total = missions.length;
+
+        onProgressChange?.(completedCount, total);
+
+        if (
+            completedCount === total &&
+            total > 0 &&
+            !allCompletedRef.current
+        ) {
+            allCompletedRef.current = true;
+            onAllCompleted?.();
+        }
+
+        if (completedCount < total) {
+            allCompletedRef.current = false;
+        }
+    }, [missions, onProgressChange, onAllCompleted]);
 
     return (
         <>
