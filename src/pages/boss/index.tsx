@@ -3,13 +3,16 @@ import BOSS_MISSIONS from '@/core/constants/boss'
 import Poppup from "@/components/Poppup"
 import MissionList from '@/components/MissionsList'
 import DifficultySelector from '@/components/DifficultySelector'
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useBossProgression } from '@/hooks/useBossProgression'
 import { usePopup } from '@/hooks/usePoppup'
+import { usePlayer } from "@/PlayerProgressionContext";
 
 
 export default function BossPage() {
     const poppup = usePopup();
+
+    const bossDefeatedRef = useRef(false);
     const {
         difficulty,
         unlockedUntil,
@@ -17,11 +20,28 @@ export default function BossPage() {
         onAllMissionsCompleted
     } = useBossProgression();
 
+    const {
+        onBossDefeated,
+        gainXp
+    } = usePlayer();
+
     const [bossLevel, setBossLevel] = useState(10);
     const [completedMissions, setCompletedMissions] = useState(0);
     const [totalMissions, setTotalMissions] = useState(0);
 
     const hpPercentage = totalMissions === 0 ? 60 : 60 - (completedMissions / totalMissions) * 60;
+
+    useEffect(() => {
+        if (hpPercentage === 0 && !bossDefeatedRef.current) {
+            bossDefeatedRef.current = true;
+            onBossDefeated();
+            gainXp(50);
+        }
+
+        if (hpPercentage > 0) {
+            bossDefeatedRef.current = false;
+        }
+    }, [hpPercentage]);
 
     return (
         <div className={styles.bossPage}>

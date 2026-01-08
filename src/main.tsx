@@ -1,17 +1,20 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
-import AllRoutes from "./routers/index.tsx";
+import AllRoutes from "./routers";
 import './globals.css'
-import Header from "@/components/Header/index.tsx";
-import TabBar from './components/TabBar/index.tsx';
+import Header from "@/components/Header";
+import TabBar from '@/components/TabBar';
+import { PlayerProgressionProvider } from './PlayerProgressionContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <Header />
-      <TabBar />
-      <AllRoutes />
+      <PlayerProgressionProvider>
+        <Header />
+        <TabBar />
+        <AllRoutes />
+      </PlayerProgressionProvider>
     </BrowserRouter>
   </StrictMode>
 )

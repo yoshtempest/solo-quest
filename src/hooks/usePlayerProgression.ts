@@ -10,6 +10,7 @@ export function usePlayerProgression() {
     // futuramente vem do backend
     const [level, setLevel] = useState(1);
     const [currentXp, setCurrentXp] = useState(0);
+    const [bossesDefeated, setBossesDefeated] = useState(0);
 
     const rank = useMemo(() => getRankByLevel(level), [level]);
     const xpToNextLevel = useMemo(() => getXpToNextLevel(level), [level]);
@@ -19,14 +20,14 @@ export function usePlayerProgression() {
     useEffect(() => {
         const result = applyLevelUp(level, currentXp);
 
-        // 🔔 level up
+        // level up
         if (result.level > level) {
             poppup.open(
                 `Você subiu para o nível ${String(result.level).padStart(2, "0")}!`
             );
         }
 
-        // 🔔 rank up
+        // rank up
         const newRank = getRankByLevel(result.level);
         if (newRank !== previousRankRef.current) {
             poppup.open(`Novo ranque alcançado: ${newRank}!`);
@@ -48,15 +49,22 @@ export function usePlayerProgression() {
         return String(level).padStart(2, "0");
     }
 
+    function onBossDefeated() {
+        setBossesDefeated(prev => prev + 1);
+        poppup.open("Boss derrotado!");
+    }
+
     return {
         level,
         rank,
         currentXp,
         xpToNextLevel,
         xpPercent,
+        bossesDefeated,
         formatLevel,
         gainXp: (amount: number) =>
             setCurrentXp(prev => prev + amount),
+        onBossDefeated,
         poppup
     };
 }

@@ -3,7 +3,7 @@ import { CircleFadingArrowUp, Flame, Award, Skull, CalendarFold, Annoyed } from 
 import ROUTES from '@/core/constants/routes';
 import { useNavigate } from 'react-router';
 import Poppup from "@/components/Poppup";
-import { usePlayerProgression } from '@/hooks/usePlayerProgression';
+import { usePlayer } from "@/PlayerProgressionContext";
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -13,8 +13,9 @@ export default function HomePage() {
         xpToNextLevel,
         xpPercent,
         formatLevel,
+        bossesDefeated,
         poppup
-    } = usePlayerProgression();
+    } = usePlayer();
 
     return (
         <div className="page">
@@ -39,7 +40,7 @@ export default function HomePage() {
                     </div>
                     <div className='rowContainer'>
                         <Skull />
-                        <h4>Bosses derrotados: 0</h4>
+                        <h4>Bosses derrotados: {bossesDefeated}</h4>
                     </div>
                     <h4>{xpToNextLevel} de XP para o próximo nível</h4>
                     <div className="rowContainer">
