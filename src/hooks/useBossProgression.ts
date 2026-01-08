@@ -1,4 +1,3 @@
-// hooks/useBossProgression.ts
 import { useState } from "react";
 import { DIFFICULTY_ORDER } from "@/core/constants/difficulty";
 import type { Difficulty } from "@/core/constants/difficulty";
