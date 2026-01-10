@@ -6,7 +6,7 @@ import DifficultySelector from '@/components/DifficultySelector'
 import { useState, useEffect, useRef } from "react"
 import { useBossProgression } from '@/hooks/useBossProgression'
 import { usePopup } from '@/hooks/usePoppup'
-import { usePlayer } from "@/PlayerProgressionContext";
+import { usePlayer } from "@/contexts/PlayerProgression";
 import { BOSS_XP_REWARD } from "@/core/constants/xpRewards";
 
 

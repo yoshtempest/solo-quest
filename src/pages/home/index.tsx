@@ -3,10 +3,12 @@ import { CircleFadingArrowUp, Flame, Award, Skull, CalendarFold, Annoyed } from 
 import ROUTES from '@/core/constants/routes';
 import { useNavigate } from 'react-router';
 import Poppup from "@/components/Poppup";
-import { usePlayer } from "@/PlayerProgressionContext";
+import { usePlayer } from "@/contexts/PlayerProgression";
+import { useUser } from "@/contexts/User";
 
 export default function HomePage() {
     const navigate = useNavigate();
+    const { user, loading } = useUser();
 
     const {
         rank,
@@ -21,7 +23,7 @@ export default function HomePage() {
         <div className="page">
             <div className="rowContainer">
                 <div className="columnContainer">
-                    <h2>Chikage</h2>
+                    <h2>{loading ? "Carregando..." : user?.username ?? "Aventureiro"}</h2>
                     <img
                         src="/src/assets/character.svg"
                         alt="character"

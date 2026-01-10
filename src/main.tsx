@@ -5,15 +5,18 @@ import AllRoutes from "./routers";
 import './globals.css'
 import Header from "@/components/Header";
 import TabBar from '@/components/TabBar';
-import { PlayerProgressionProvider } from './PlayerProgressionContext'
+import { PlayerProgressionProvider } from './contexts/PlayerProgression'
+import { UserProvider } from "@/contexts/User";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <PlayerProgressionProvider>
-        <Header />
-        <TabBar />
-        <AllRoutes />
+        <UserProvider>
+          <Header />
+          <TabBar />
+          <AllRoutes />
+        </UserProvider>
       </PlayerProgressionProvider>
     </BrowserRouter>
   </StrictMode>
