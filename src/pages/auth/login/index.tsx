@@ -4,17 +4,23 @@ import ROUTES from "@/core/constants/routes";
 import { useNavigate } from "react-router";
 import styles from "./styles.module.css";
 import { useState } from "react";
+import { login } from "@/services/auth";
 
 export default function LoginPage() {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-
-        // Aqui futuramente você valida no backend
-        navigate(ROUTES.home);
+        
+        try {
+            const { token } = await login(email, password);
+            localStorage.setItem("token", token);
+            navigate(ROUTES.home);
+        } catch {
+            alert("Email ou senha inválidos");
+        }
     }
     return (
         <div className="page">

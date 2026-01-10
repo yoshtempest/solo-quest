@@ -1,10 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
-interface User {
-  id: string;
-  username: string;
-  email: string;
-}
+import { getCurrentUser } from "@/services/user";
+import type { User } from "@/services/user";
 
 interface UserContextData {
   user: User | null;
@@ -19,34 +15,10 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function loadUser() {
-      const token = localStorage.getItem("token");
-
-      if (!token) {
-        setLoading(false);
-        return;
-      }
-
-      try {
-        const response = await fetch("http://localhost:3000/user", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (!response.ok) throw new Error("Não autorizado");
-
-        const data = await response.json();
-        setUser(data);
-      } catch {
-        localStorage.removeItem("token");
-        setUser(null);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadUser();
+    getCurrentUser()
+      .then(setUser)
+      .catch(() => setUser(null))
+      .finally(() => setLoading(false));
   }, []);
 
   function logout() {
@@ -64,3 +36,4 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 export function useUser() {
   return useContext(UserContext);
 }
+

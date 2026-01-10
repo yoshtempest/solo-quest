@@ -8,7 +8,7 @@ import { useUser } from "@/contexts/User";
 
 export default function HomePage() {
     const navigate = useNavigate();
-    const { user, loading } = useUser();
+    const { user } = useUser();
 
     const {
         rank,
@@ -23,7 +23,7 @@ export default function HomePage() {
         <div className="page">
             <div className="rowContainer">
                 <div className="columnContainer">
-                    <h2>{loading ? "Carregando..." : user?.username ?? "Aventureiro"}</h2>
+                    <h2>{user?.username}</h2>
                     <img
                         src="/src/assets/character.svg"
                         alt="character"
