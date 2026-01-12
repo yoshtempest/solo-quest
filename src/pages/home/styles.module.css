@@ -28,22 +28,6 @@
   transition: width 1s ease;
 }
 
-/* .xpBar {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 40vw;
-    height: 3.5vh;
-    border-radius: 10px;
-    background: linear-gradient(
-        to right,
-        #80A0F8 20%,
-        var(--background) 21%
-    );
-
-    border: var(--border);
-} */
-
 .icon {
     border-left: var(--border);
     width: 8vw;
