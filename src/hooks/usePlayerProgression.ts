@@ -11,11 +11,36 @@ export function usePlayerProgression() {
     const [level, setLevel] = useState(1);
     const [currentXp, setCurrentXp] = useState(0);
     const [bossesDefeated, setBossesDefeated] = useState(0);
+    const [pendingXp, setPendingXp] = useState(0);
 
-    const rank = useMemo(() => getRankByLevel(level), [level]);
-    const xpToNextLevel = useMemo(() => getXpToNextLevel(level), [level]);
+    const rank = useMemo(
+        () => getRankByLevel(level), [level]
+    );
+
+    const totalXpForLevel = useMemo(
+        () => getXpToNextLevel(level),
+        [level]
+    );
+
+    const xpToNextLevel = Math.max(
+        totalXpForLevel - currentXp,
+        0
+    );
 
     const previousRankRef = useRef(rank);
+
+    function addPendingXp(amount: number) {
+        setPendingXp(prev => prev + amount);
+    }
+
+    function consumePendingXp() {
+        setPendingXp(prev => {
+            if (prev > 0) {
+                setCurrentXp(xp => xp + prev);
+            }
+            return 0;
+        });
+    }
 
     useEffect(() => {
         const result = applyLevelUp(level, currentXp);
@@ -41,7 +66,7 @@ export function usePlayerProgression() {
     }, [currentXp]);
 
     const xpPercent = Math.min(
-        (currentXp / xpToNextLevel) * 100,
+        (currentXp / totalXpForLevel) * 100,
         100
     );
 
@@ -60,9 +85,10 @@ export function usePlayerProgression() {
         xpToNextLevel,
         xpPercent,
         bossesDefeated,
+        pendingXp,
         formatLevel,
-        gainXp: (amount: number) =>
-            setCurrentXp(prev => prev + amount),
+        gainXp: addPendingXp,
+        consumePendingXp,
         onBossDefeated,
         poppup
     };

@@ -24,8 +24,8 @@
 
 .xpFill {
   height: 100%;
-  background: linear-gradient(to right, #80A0F8, var(--background));
-  transition: width 0.3s ease;
+  background: #0288D1;
+  transition: width 1s ease;
 }
 
 /* .xpBar {

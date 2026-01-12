@@ -1,4 +1,3 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
 import AllRoutes from "./routers";
@@ -9,15 +8,13 @@ import { PlayerProgressionProvider } from './contexts/PlayerProgression'
 import { UserProvider } from "@/contexts/User";
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <PlayerProgressionProvider>
-        <UserProvider>
-          <Header />
-          <TabBar />
-          <AllRoutes />
-        </UserProvider>
-      </PlayerProgressionProvider>
-    </BrowserRouter>
-  </StrictMode>
+  <BrowserRouter>
+    <PlayerProgressionProvider>
+      <UserProvider>
+        <Header />
+        <TabBar />
+        <AllRoutes />
+      </UserProvider>
+    </PlayerProgressionProvider>
+  </BrowserRouter>
 )

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 import Poppup from "@/components/Poppup";
 import { usePlayer } from "@/contexts/PlayerProgression";
 import { useUser } from "@/contexts/User";
+import { useEffect } from 'react'; 
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -16,8 +17,13 @@ export default function HomePage() {
         xpPercent,
         formatLevel,
         bossesDefeated,
-        poppup
+        poppup,
+        consumePendingXp
     } = usePlayer();
+
+    useEffect(() => {
+        consumePendingXp();
+    }, []);
 
     return (
         <div className="page">
