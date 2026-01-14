@@ -11,8 +11,8 @@ export const DAILY_BOSSES: Record<number, BossConfig> = {
   0: MUSASHI,  // domingo
   1: LEONIDAS, // segunda
   2: HERMES,   // terça
-  4: ADRIAN,
-  3: CMP,
+  3: ADRIAN,
+  4: CMP,
   5: DANIEL,
   6: BRUCE,
 };
