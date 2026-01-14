@@ -17,7 +17,7 @@ import { useBossProgressionContext } from "@/contexts/BossProgression";
 export default function BossPage() {
     const poppup = usePopup();
     const { completeDifficulty } = useBossProgressionContext();
-    const { onBossDefeated, gainXp } = usePlayer();
+    const { gainXp } = usePlayer();
 
     const {
         difficulty,
