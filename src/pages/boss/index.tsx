@@ -12,10 +12,12 @@ import { usePopup } from '@/hooks/usePoppup'
 import { usePlayer } from "@/contexts/PlayerProgression";
 import { BOSS_XP_REWARD } from "@/core/constants/xpRewards";
 import { useBossProgressionContext } from "@/contexts/BossProgression";
+import { useDailyBoss } from "@/hooks/useDailyBoss";
 
 
 export default function BossPage() {
     const poppup = usePopup();
+    const boss = useDailyBoss();
     const { completeDifficulty } = useBossProgressionContext();
     const { gainXp } = usePlayer();
 
@@ -52,12 +54,12 @@ export default function BossPage() {
         <div className={styles.bossPage}>
             <div className="columnContainer">
                 <h3 className={styles.textCenter}>
-                    Leônidas, o Guerreiro - Nv {bossLevel}
+                    {boss.name}, {boss.title} - Nv {bossLevel}
                 </h3>
                 <BossHp percentage={hpPercentage} />
                 <img
-                    src="/src/assets/leonidas.svg"
-                    alt="Leonidas"
+                    src={boss.image}
+                    alt={boss.name}
                     className={styles.boss}
                 />
             </div>
