@@ -8,10 +8,12 @@ import { useBossProgression } from '@/hooks/useBossProgression'
 import { usePopup } from '@/hooks/usePoppup'
 import { usePlayer } from "@/contexts/PlayerProgression";
 import { BOSS_XP_REWARD } from "@/core/constants/xpRewards";
+import { useBossProgressionContext } from "@/contexts/BossProgression";
 
 
 export default function BossPage() {
     const poppup = usePopup();
+    const { completeDifficulty } = useBossProgressionContext();
 
     const bossDefeatedRef = useRef(false);
     const {
@@ -36,6 +38,7 @@ export default function BossPage() {
         if (hpPercentage === 0 && !bossDefeatedRef.current) {
             bossDefeatedRef.current = true;
             onBossDefeated();
+            completeDifficulty(difficulty);
             const xpReward = BOSS_XP_REWARD[difficulty];
             gainXp(xpReward);
 

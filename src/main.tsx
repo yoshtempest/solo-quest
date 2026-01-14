@@ -6,15 +6,18 @@ import Header from "@/components/Header";
 import TabBar from '@/components/TabBar';
 import { PlayerProgressionProvider } from './contexts/PlayerProgression'
 import { UserProvider } from "@/contexts/User";
+import { BossProgressionProvider } from './contexts/BossProgression';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <PlayerProgressionProvider>
-      <UserProvider>
+      <BossProgressionProvider>
+        <UserProvider>
         <Header />
         <TabBar />
         <AllRoutes />
       </UserProvider>
+      </BossProgressionProvider>
     </PlayerProgressionProvider>
   </BrowserRouter>
 )

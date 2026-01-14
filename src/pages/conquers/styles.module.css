@@ -60,3 +60,7 @@
     align-items: center;
     justify-content: flex-start;
 }
+
+.completed {
+    background-color: #a0e6a0;
+}
