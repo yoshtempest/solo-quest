@@ -3,20 +3,22 @@ import BOSS_MISSIONS from '@/core/constants/boss'
 import Poppup from "@/components/Poppup"
 import MissionList from '@/components/MissionsList'
 import DifficultySelector from '@/components/DifficultySelector'
-import { useState, useEffect, useRef, useMemo } from "react"
+import BossHp from '@/components/BossHp';
+import { useBossHp } from "@/hooks/useBossHp"
+import { useBossDefeat } from "@/hooks/useBossDefeat"
+import { useState } from "react"
 import { useBossProgression } from '@/hooks/useBossProgression'
 import { usePopup } from '@/hooks/usePoppup'
 import { usePlayer } from "@/contexts/PlayerProgression";
 import { BOSS_XP_REWARD } from "@/core/constants/xpRewards";
 import { useBossProgressionContext } from "@/contexts/BossProgression";
-import type { Difficulty } from '@/core/constants/difficulty';
 
 
 export default function BossPage() {
     const poppup = usePopup();
     const { completeDifficulty } = useBossProgressionContext();
+    const { onBossDefeated, gainXp } = usePlayer();
 
-    const bossDefeatedRef = useRef(false);
     const {
         difficulty,
         unlockedUntil,
@@ -24,46 +26,27 @@ export default function BossPage() {
         onAllMissionsCompleted
     } = useBossProgression();
 
-    const {
-        onBossDefeated,
-        gainXp
-    } = usePlayer();
-
     const [bossLevel, setBossLevel] = useState(10);
     const [completedMissions, setCompletedMissions] = useState(0);
     const [totalMissions, setTotalMissions] = useState(0);
 
-    const hpPercentage = useMemo(() => {
-        if (totalMissions === 0) return 60;
-        return 60 - (completedMissions / totalMissions) * 60;
-    }, [completedMissions, totalMissions]);
+    const { hpPercentage, isDefeated } = useBossHp({
+        completed: completedMissions,
+        total: totalMissions,
+    });
 
-    function handleBossDefeated() {
-        onBossDefeated();
-        completeDifficulty(difficulty);
+    useBossDefeat({
+        isDefeated,
+        difficulty,
+        onDefeat: () => {
+            completeDifficulty(difficulty);
 
-        const xpReward = BOSS_XP_REWARD[difficulty];
-        gainXp(xpReward);
+            const xp = BOSS_XP_REWARD[difficulty];
+            gainXp(xp);
 
-        poppup.open(`Recompensa pela vitória: ${xpReward}xp`, 3);
-    }
-
-    function handleDifficultyChange(newDifficulty: Difficulty, level: number) {
-        setDifficulty(newDifficulty);
-        setBossLevel(level);
-        setCompletedMissions(0);
-    }
-
-    useEffect(() => {
-        if (hpPercentage === 0 && !bossDefeatedRef.current) {
-            bossDefeatedRef.current = true;
-            handleBossDefeated();
-        }
-
-        if (hpPercentage > 0) {
-            bossDefeatedRef.current = false;
-        }
-    }, [hpPercentage, difficulty]);
+            poppup.open(`Recompensa pela vitória: ${xp}xp`, 3);
+        },
+    });
 
     return (
         <div className={styles.bossPage}>
@@ -71,23 +54,7 @@ export default function BossPage() {
                 <h3 className={styles.textCenter}>
                     Leônidas, o Guerreiro - Nv {bossLevel}
                 </h3>
-                <div className={styles.hpWrapper}>
-                    <div
-                        className={styles.hpBar}
-                        style={{
-                            width: `${hpPercentage}%`,
-                            background:
-                                hpPercentage === 0
-                                    ? "linear-gradient(to left, #FF0000, red)"
-                                    : "linear-gradient(to left, red, darkred)",
-                        }}
-                    />
-                    <img
-                        src="/src/assets/bosshp3.svg"
-                        alt="Leonidas"
-                        className={styles.dragon}
-                    />
-                </div>
+                <BossHp percentage={hpPercentage} />
                 <img
                     src="/src/assets/leonidas.svg"
                     alt="Leonidas"
@@ -100,7 +67,11 @@ export default function BossPage() {
             <DifficultySelector
                 value={difficulty}
                 unlockedUntil={unlockedUntil}
-                onChange={handleDifficultyChange}
+                onChange={(newDifficulty, level) => {
+                    setDifficulty(newDifficulty);
+                    setBossLevel(level);
+                    setCompletedMissions(0);
+                }}
             />
             <MissionList
                 key={difficulty}

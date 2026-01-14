@@ -42,29 +42,3 @@
 input[type="checkbox"].checkBox {
     border: 1px solid white;
 }
-
-.hpBar {
-  position: absolute;
-  height: 22%;
-  left: 20%;
-  border-radius: 1000px;
-  z-index: 1;
-  margin-top: 8%;
-  transition: background 0.4s ease, width 2s ease;
-}
-
-.hpWrapper {
-  position: relative;
-  display: flex;
-  width: 90vw;
-  align-items: center;
-  justify-content: center;
-}
-
-.dragon {
-  width: 65%;
-  height: 65%;
-  object-fit: contain;
-  z-index: 2;
-  pointer-events: none;
-}
