@@ -23,12 +23,6 @@
     width: fit-content;
 }
 
-.difficulties h4 {
-    text-align: center;
-    background-color: #d9d9d9;
-    border-radius: 2px;
-}
-
 .moreBig {
     display: flex;
     position: absolute;
@@ -61,6 +55,12 @@
     justify-content: flex-start;
 }
 
+.text {
+    text-align: center;
+    background-color: #d9d9d9;
+    border-radius: 2px;
+}
+
 .completed {
-    background-color: #a0e6a0;
+    background-color: #32CD32;
 }
