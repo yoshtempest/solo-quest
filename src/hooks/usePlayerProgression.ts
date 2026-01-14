@@ -3,6 +3,8 @@ import { applyLevelUp } from "@/core/utils/levelUp";
 import { getXpToNextLevel } from "@/core/utils/xp";
 import { getRankByLevel } from "@/core/utils/rank";
 import { usePopup } from "./usePoppup";
+import { getTodayKey, daysBetween } from "@/core/utils/date";
+
 
 export function usePlayerProgression() {
     const poppup = usePopup();
@@ -18,6 +20,15 @@ export function usePlayerProgression() {
         () => getRankByLevel(level), [level]
     );
 
+    const [offensiveDays, setOffensiveDays] = useState(() => {
+        return Number(localStorage.getItem("offensiveDays")) || 0;
+    });
+
+    const lastXpDateRef = useRef<string | null>(
+        localStorage.getItem("lastXpDate")
+    );
+
+
     const totalXpForLevel = useMemo(
         () => getXpToNextLevel(level),
         [level]
@@ -30,7 +41,47 @@ export function usePlayerProgression() {
 
     const previousRankRef = useRef(rank);
 
+    function handleOffensiveGain() {
+    const today = getTodayKey();
+    const lastDate = lastXpDateRef.current;
+
+    // Primeiro XP da vida
+    if (!lastDate) {
+        setOffensiveDays(1);
+        localStorage.setItem("offensiveDays", "1");
+        localStorage.setItem("lastXpDate", today);
+        lastXpDateRef.current = today;
+        return;
+    }
+
+    const diffDays = daysBetween(lastDate, today);
+
+    // Mesmo dia → não aumenta
+    if (diffDays === 0) return;
+
+    // Dia seguinte → aumenta streak
+    if (diffDays === 1) {
+        setOffensiveDays(prev => {
+        const next = prev + 1;
+        localStorage.setItem("offensiveDays", String(next));
+        return next;
+        });
+    }
+
+    // Perdeu um dia → reseta
+    if (diffDays > 1) {
+        setOffensiveDays(1);
+        localStorage.setItem("offensiveDays", "1");
+    }
+
+    localStorage.setItem("lastXpDate", today);
+    lastXpDateRef.current = today;
+    }
+
+
     function addPendingXp(amount: number) {
+        if (amount <= 0) return;
+        handleOffensiveGain();
         setPendingXp(prev => prev + amount);
     }
 
@@ -93,6 +144,7 @@ export function usePlayerProgression() {
         xpToNextLevel,
         xpPercent,
         bossesDefeated,
+        offensiveDays,
         pendingXp,
         availablePoints,
         spendPoints,

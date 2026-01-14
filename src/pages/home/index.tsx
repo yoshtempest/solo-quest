@@ -18,7 +18,8 @@ export default function HomePage() {
         formatLevel,
         bossesDefeated,
         poppup,
-        consumePendingXp
+        consumePendingXp,
+        offensiveDays
     } = usePlayer();
 
     useEffect(() => {
@@ -44,7 +45,7 @@ export default function HomePage() {
                     </div>
                     <div className='rowContainer'>
                         <Flame />
-                        <h4>Ofensiva: 0 dias</h4>
+                        <h4>Ofensiva: {offensiveDays}</h4>
                     </div>
                     <div className='rowContainer'>
                         <Skull />
@@ -85,4 +86,4 @@ export default function HomePage() {
             />
         </div>
     )
-} 
+}
