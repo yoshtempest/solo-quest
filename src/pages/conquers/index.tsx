@@ -1,5 +1,4 @@
 import styles from './styles.module.css'
-import IMAGES from "@/core/constants/images";
 import { DIFFICULTY_ORDER } from '@/core/constants/difficulty'
 import { useBossProgressionContext } from "@/contexts/BossProgression";
 import { DAILY_BOSSES } from "@/core/constants/bosses";
@@ -25,7 +24,7 @@ export default function ConquersPage() {
               }`}
             >
               <img
-                src={IMAGES.bossBadge}
+                src={boss.image}
                 alt="Chefão"
                 className={styles.icon}
               />
