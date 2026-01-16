@@ -1,31 +1,39 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import type { Difficulty } from "@/core/constants/difficulty";
 
+type BossProgress = {
+  [bossId: string]: Partial<Record<Difficulty, true>>;
+};
+
 type BossProgressionContextType = {
-    completedDifficulties: Difficulty[];
-    completeDifficulty: (difficulty: Difficulty) => void;
-    isDifficultyCompleted(bossId: string, difficulty: Difficulty): boolean
+    progress: BossProgress;
+    completeDifficulty: (bossId: string, difficulty: Difficulty) => void;
+    isDifficultyCompleted(bossId: string, difficulty: Difficulty): boolean;
 };
 
 const BossProgressionContext = createContext<BossProgressionContextType | null>(null);
 
 export function BossProgressionProvider({ children }: { children: ReactNode }) {
-    const [completedDifficulties, setCompletedDifficulties] = useState<Difficulty[]>([]);
+    const [progress, setProgress] = useState<BossProgress>({});
 
-    function completeDifficulty(difficulty: Difficulty) {
-        setCompletedDifficulties(prev =>
-            prev.includes(difficulty) ? prev : [...prev, difficulty]
-        );
+    function completeDifficulty(bossId: string, difficulty: Difficulty) {
+        setProgress(prev => ({
+            ...prev,
+            [bossId]: {
+                ...prev[bossId],
+                [difficulty]: true
+            }
+        }));
     }
 
-    function isDifficultyCompleted(difficulty: Difficulty) {
-        return completedDifficulties.includes(difficulty);
+    function isDifficultyCompleted(bossId: string, difficulty: Difficulty) {
+        return Boolean(progress[bossId]?.[difficulty]);
     }
 
     return (
         <BossProgressionContext.Provider
             value={{
-                completedDifficulties,
+                progress,
                 completeDifficulty,
                 isDifficultyCompleted
             }}

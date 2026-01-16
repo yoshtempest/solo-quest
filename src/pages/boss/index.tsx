@@ -41,7 +41,7 @@ export default function BossPage() {
         isDefeated,
         difficulty,
         onDefeat: () => {
-            completeDifficulty(difficulty);
+            completeDifficulty(boss.id, difficulty);
 
             const xp = BOSS_XP_REWARD[difficulty];
             gainXp(xp);
