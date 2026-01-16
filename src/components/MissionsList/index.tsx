@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import IMAGES from "@/core/constants/images";
 
 interface Props {
     missionsData: Mission[];
@@ -22,19 +23,20 @@ export default function MissionList({
     const [missions, setMissions] = useState(missionsData);
     const allCompletedRef = useRef(false);
 
-    function completeMission(id: string) {
+    function completeMission(id: number) {
         setMissions((prev) => {
             const updated = prev.map((mission) =>
-                mission.id === id
-                    ? { ...mission, completed: true }
-                    : mission
+            (Number(mission.id)) === id
+                ? { ...mission, completed: true }
+                : mission
             );
+
             const completedMission = prev.find(
-                mission => mission.id === id
+            mission => (Number(mission.id)) === id
             );
-            
+
             if (completedMission) {
-                onMissionCompleted?.(completedMission);
+            onMissionCompleted?.(completedMission);
             }
 
             return updated;
@@ -76,7 +78,7 @@ export default function MissionList({
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
-                                <img src={mission.image} />
+                                <img src={IMAGES[mission.image]} alt={mission.title} />
                                 <h3>{mission.title}</h3>
                             </div>
 
@@ -88,7 +90,7 @@ export default function MissionList({
                                     checked={mission.completed}
                                     disabled={mission.completed}
                                     onChange={() =>
-                                        completeMission(mission.id)
+                                        completeMission(Number(mission.id))
                                     }
                                 />
                             </div>

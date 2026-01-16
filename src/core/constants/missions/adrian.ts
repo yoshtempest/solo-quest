@@ -2,7 +2,7 @@ import type { BossMission } from "./types";
 
 export const ADRIAN_MISSIONS: BossMission[] = [
   {
-    id: "1",
+    id: 1,
     title: "Flexão",
     image: "pushUp2",
     total: 50,
@@ -14,7 +14,7 @@ export const ADRIAN_MISSIONS: BossMission[] = [
     ]
   },
   {
-    id: "2",
+    id: 2,
     title: "Barra",
     image: "bar",
     total: 50,
@@ -26,7 +26,7 @@ export const ADRIAN_MISSIONS: BossMission[] = [
     ]
   },
   {
-    id: "3",
+    id: 3,
     title: "Dips",
     image: "dips",
     total: 50,

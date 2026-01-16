@@ -1,7 +1,9 @@
+import IMAGES from "@/core/constants/images";
+
 export type BossMission = {
-  id: string;
+  id: number;
   title: string;
-  image: string;
+  image: keyof typeof IMAGES;
   total: number;
   unit: "rep" | "sec" | "min" | "km";
   tasks: string[];
