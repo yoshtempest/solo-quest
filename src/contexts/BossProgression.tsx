@@ -4,7 +4,7 @@ import type { Difficulty } from "@/core/constants/difficulty";
 type BossProgressionContextType = {
     completedDifficulties: Difficulty[];
     completeDifficulty: (difficulty: Difficulty) => void;
-    isDifficultyCompleted: (difficulty: Difficulty) => boolean;
+    isDifficultyCompleted(bossId: string, difficulty: Difficulty): boolean
 };
 
 const BossProgressionContext = createContext<BossProgressionContextType | null>(null);
