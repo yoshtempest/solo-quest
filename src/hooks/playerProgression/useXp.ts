@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { applyLevelUp } from "@/core/utils/levelUp";
 import { getXpToNextLevel } from "@/core/utils/xp";
 import { getRankByLevel } from "@/core/utils/rank";
-import { usePopup } from "./usePoppup";
+import { usePopup } from "../usePoppup";
 
 export function useXp() {
   const poppup = usePopup();

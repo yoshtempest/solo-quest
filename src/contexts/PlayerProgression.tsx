@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { usePlayerProgression } from "@/hooks/usePlayerProgression";
+import { usePlayerProgression } from "@/hooks/playerProgression/usePlayerProgression";
 
 const PlayerProgressionContext = createContext<ReturnType<typeof usePlayerProgression> | null>(null);
 
