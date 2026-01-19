@@ -1,0 +1,14 @@
+.lowHr {
+    width: 35vw;
+    align-self: center;
+}
+
+.spacingRow {
+    margin: 0 5vw 0 5vw;
+}
+
+.link {
+    position: absolute;
+    margin-bottom: 9vh;
+    transform: translateX(10%);
+}

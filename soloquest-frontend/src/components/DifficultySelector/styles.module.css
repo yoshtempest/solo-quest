@@ -1,0 +1,20 @@
+.rotate {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.option {
+  border-radius: 0px;
+  background-color: #e73939;
+}
+
+.option:disabled {
+  filter: brightness(0.6);
+  cursor: not-allowed;
+}
+
+.justifyContent {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}

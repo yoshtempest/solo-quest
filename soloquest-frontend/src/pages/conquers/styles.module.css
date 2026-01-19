@@ -1,0 +1,77 @@
+.conquersPage {
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  gap: 3vh;
+  background-color: var(--background);
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0 15vh 0;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 78vw;
+    height: 8vh;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+}
+
+.item h3 {
+    width: 95%;
+}
+
+.difficulties {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2vw;
+    width: fit-content;
+}
+
+.moreBig {
+    display: flex;
+    position: absolute;
+    height: 10vh;
+    align-items: flex-end;
+    justify-content: center;
+    width: 18vw;
+    left: 3vw;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+}
+
+.icon {
+    height: 7vh;
+    margin-bottom: 1vh;
+}
+
+.rowContainer {
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+}
+
+.columnContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 14vw;
+    gap: 0.5vh;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.text {
+    text-align: center;
+    background-color: #d9d9d9;
+    border-radius: 2px;
+}
+
+.completed {
+    background-color: #32CD32;
+}

@@ -1,0 +1,203 @@
+{
+    "daily-missions": [
+        {
+            "id": "1",
+            "title": "Alongue-se",
+            "image": "stretching",
+            "total": "5",
+            "unit": "min",
+            "completed": false,
+            "tasks": [
+                "Alongamento lateral do pescoço",
+                "Alongamento de braço cruzado no peito",
+                "Panturrilha em pé (apoiado na parede)"
+            ]
+        },
+        {
+            "id": "run",
+            "title": "Corra",
+            "image": "run",
+            "total": "10",
+            "unit": "km",
+            "completed": false,
+            "tasks": [
+                "Corrida explosiva",
+                "Corrida contínua (ritmo constante)",
+                "Corrida intervalada"
+            ]
+        },
+        {
+            "id": "abs",
+            "title": "Abdômen",
+            "image": "abdominal",
+            "total": 10,
+            "unit": "min",
+            "completed": false,
+            "tasks": [
+                "Abdominal tradicional",
+                "Prancha",
+                "Elevação de pernas deitado"
+            ]
+        },
+        {
+            "id": "pushup",
+            "title": "Flexão",
+            "image": "pushUp",
+            "total": "100",
+            "unit": "rep",
+            "completed": false,
+            "tasks": [
+                "Flexão tradicional",
+                "Flexão com pegada aberta",
+                "Flexão diamante (pegada fechada)"
+            ]
+        },
+        {
+            "id": "lower",
+            "title": "Inferiores",
+            "image": "lower",
+            "total": 100,
+            "unit": "rep",
+            "completed": false,
+            "tasks": [
+                "Elevação de panturrilha em pé",
+                "Elevação de quadril (ponte)",
+                "Avanço (passada) parado"
+            ]
+        }
+    ],
+    "weekly-missions": [
+        {
+            "id": "1",
+            "title": "Alongue-se",
+            "image": "stretching",
+            "total": "45",
+            "unit": "min",
+            "completed": false,
+            "tasks": [
+                "Alongamento lateral do pescoço",
+                "Alongamento de braço cruzado no peito",
+                "Panturrilha em pé (apoiado na parede)"
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Agachamento",
+            "image": "squat",
+            "total": "80",
+            "unit": "rep",
+            "completed": false,
+            "tasks": [
+                "Agachamento tradicional",
+                "Agachamento sumô",
+                "Agachamento pausado (desce e  fica 3s)"
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Corra",
+            "image": "run",
+            "total": 10,
+            "unit": "km",
+            "completed": false,
+            "tasks": [
+                "Corrida explosiva",
+                "Corrida contínua (ritmo constante)",
+                "Corrida intervalada"
+            ]
+        },
+        {
+            "id": "4",
+            "title": "Abdômen",
+            "image": "abs",
+            "total": "100",
+            "unit": "rep",
+            "completed": false,
+            "tasks": [
+                "Abdominal tradicional",
+                "Abdominal infra (elevação de pernas)",
+                "Abdominal com toque no calcanhar"
+            ]
+        },
+        {
+            "id": "5",
+            "title": "Flexão",
+            "image": "pushUp",
+            "total": 500,
+            "unit": "rep",
+            "completed": false,
+            "tasks": [
+                "Flexão tradicional",
+                "Flexão com pegada aberta",
+                "Flexão diamante (pegada fechada)"
+            ]
+        },
+        {
+            "id": "6",
+            "title": "Prancha",
+            "image": "planche",
+            "total": 10,
+            "unit": "min",
+            "completed": false,
+            "tasks": [
+                "Prancha tradicional",
+                "Prancha lateral",
+                "Prancha alta"
+            ]
+        },
+        {
+            "id": "7",
+            "title": "Viciado em treino",
+            "image": "addicted",
+            "total": 5,
+            "unit": "h",
+            "completed": false,
+            "tasks": [
+                "Treine até a exaustão sem interrupção",
+                "Complete 3 sessões de treino",
+                "Finalize um treino completo (corpo todo)"
+            ]
+        }
+    ],
+    "boss-missions": [
+        {
+            "id": "1",
+            "title": "Flexão",
+            "image": "pushUp2",
+            "total": "50",
+            "unit": "rep",
+            "completed": false,
+            "tasks": [
+                "Flexão tradicional",
+                "Flexão com pegada aberta",
+                "Flexão diamante (pegada fechada)"
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Barra",
+            "image": "bar",
+            "total": "50",
+            "unit": "rep",
+            "completed": false,
+            "tasks": [
+                "Barra tradicional",
+                "Barra isométrica (mantenha-se no topo)",
+                "Barra negativa (descida lenta)"
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Dips",
+            "image": "dips",
+            "total": 50,
+            "unit": "rep",
+            "completed": false,
+            "tasks": [
+                "Dip tradicional",
+                "Dip entre bancos/cadeiras",
+                "Dip russa"
+            ]
+        }
+    ]
+}

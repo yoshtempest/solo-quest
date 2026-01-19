@@ -1,0 +1,33 @@
+.poppup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 12vh;
+    left: 50%;
+    width: 94vw;
+    transform: translateX(-50%);
+    background-color: var(--main-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(80, 80, 80, 0.4);
+    animation: slideUp 0.3s ease;
+    z-index: 9999;
+    padding: 1vh 1vw; /* 👈 topo/baixo = 1vh */
+}
+
+.poppup h3 {
+    color: var(--background);
+    margin: 0; /* evita empurrar o container */
+    text-align: center;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}

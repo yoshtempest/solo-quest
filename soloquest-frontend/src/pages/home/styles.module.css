@@ -1,0 +1,41 @@
+.character {
+    width: 20vw;
+}
+
+.characterInfos {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-self: center;
+}
+
+.xpBar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 40vw;
+  height: 3.5vh;
+  border-radius: 10px;
+
+  border: var(--border);
+
+  overflow: hidden;
+}
+
+.xpFill {
+  height: 100%;
+  background: #0288D1;
+  transition: width 1s ease;
+}
+
+.icon {
+    border-left: var(--border);
+    width: 8vw;
+    position: absolute;
+    right: 0;
+}
+
+.face {
+    width: 15vw;
+    height: auto;
+}

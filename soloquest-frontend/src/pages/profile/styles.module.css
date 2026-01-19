@@ -1,0 +1,21 @@
+.icon {
+    border: var(--border);
+}
+
+.character {
+    width: 30vw;
+}
+
+.alignment {
+    display: flex;
+    width: 60vw;
+    justify-content: space-between;
+}
+
+.spacement {
+    gap: 0.5vh;
+}
+
+.button {
+    width: 100%;
+}

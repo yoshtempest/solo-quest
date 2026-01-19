@@ -1,0 +1,211 @@
+@font-face {
+  font-family: "Inter";
+  src: url("/src/assets/fonts/inter-regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Irish Grover";
+  src: url("/src/assets/fonts/irish-grover-regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Arima";
+  src: url("/src/assets/fonts/arima-regular.ttf") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /*Background de fundo e cor de Letras*/
+  --background: #f3f3f3;
+  --foreground: #171717;
+  /*Cor Principal*/
+  --main-color: #8C2929;
+
+  /*Cores Links*/
+  --link-color: #183aba;
+  --border: 1px solid var(--foreground);
+
+  /* Gray */
+  --gray: #808080;
+  --white: #fff
+
+  /*Fontes*/
+  --irish-grover: "Irish Grover"; /*Usado no Header*/
+  --arima: "Arima";
+  --inter: "Inter"; /*Usado nos <h1> <h2> <h3> <h4> <h5>*/
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+h1,
+h2,
+h3,
+h4,
+label {
+  font-family: var(--inter);
+  color: var(--foreground);
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3,
+input,
+button {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+label {
+  font-size: 32px;
+}
+
+.formInput {
+  width: 80vw;
+  height: 4vh;
+  border: none;
+  padding: 0 6vw 0 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3vh;
+  color: var(--foreground);
+}
+
+button {
+  display: flex;
+  width: 80vw;
+  height: 6vh;
+  background-color: var(--main-color);
+  color: var(--background);
+  border: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a {
+  font-size: 24px;
+}
+
+.columnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  align-items: center;
+}
+
+.page {
+  min-height: 80vh;
+  width: 100vw;
+  display: flex;
+  gap: 3vh;
+  margin: 5vh 0 3vh 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character {
+    margin-bottom: -3vh;
+    transform: translateX(-150%);
+    width: 20vw;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 2vw 0 2vw;
+}
+
+hr {
+  border: 1px solid var(--gray);
+  width: 100%;
+  margin-top: 1vh;
+}
+
+.justifyStart h4 {
+    width: 95%;
+}
+
+.justifyStart {
+    width: 87vw;
+}
+
+.spacement {
+    width: 95%;
+    justify-content: space-between;
+}
+
+.textCenter {
+  text-align: center;
+  width: 90%;
+}
+
+input[type="checkbox"] {
+    width: 6vw;
+    height: 24px;
+    border-radius: 5px;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border: var(--border);
+    background-color: transparent;
+    cursor: pointer;
+
+    display: grid;
+    place-items: center;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #22c55e;
+}
+
+input[type="checkbox"]::after {
+    content: "";
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
