@@ -1,10 +1,11 @@
 import type { BossMission } from "./types";
+import { Ruler, Target, Scale } from "lucide-react";
 
 export const DANIEL_MISSIONS: BossMission[] = [
   {
     id: 1,
     title: "Forma Absoluta",
-    image: "pushUp2",
+    image: Ruler,
     total: 50,
     unit: "rep",
     tasks: [
@@ -16,7 +17,7 @@ export const DANIEL_MISSIONS: BossMission[] = [
   {
     id: 2,
     title: "Controle no Vazio",
-    image: "bar",
+    image: Target,
     total: 50,
     unit: "rep",
     tasks: [
@@ -28,7 +29,7 @@ export const DANIEL_MISSIONS: BossMission[] = [
   {
     id: 3,
     title: "Equilíbrio Perfeito",
-    image: "dips",
+    image: Scale,
     total: 50,
     unit: "rep",
     tasks: [

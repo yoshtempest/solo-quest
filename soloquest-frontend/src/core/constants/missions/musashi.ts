@@ -1,10 +1,11 @@
 import type { BossMission } from "./types";
+import { Wind, Ear, Eye } from "lucide-react";
 
 export const MUSASHI_MISSIONS: BossMission[] = [
   {
     id: 1,
     title: "Calmo como o Mar",
-    image: "pushUp2",
+    image: Wind,
     total: 10,
     unit: "min",
     tasks: [
@@ -16,7 +17,7 @@ export const MUSASHI_MISSIONS: BossMission[] = [
   {
     id: 2,
     title: "O Som do Nada",
-    image: "bar",
+    image: Ear,
     total: 10,
     unit: "min",
     tasks: [
@@ -28,7 +29,7 @@ export const MUSASHI_MISSIONS: BossMission[] = [
   {
     id: 3,
     title: "Olhos do Tigre",
-    image: "dips",
+    image: Eye,
     total: 10,
     unit: "min",
     tasks: [

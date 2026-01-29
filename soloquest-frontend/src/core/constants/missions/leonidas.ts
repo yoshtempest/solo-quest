@@ -1,10 +1,11 @@
 import type { BossMission } from "./types";
+import { Shield, ArrowUp, ShieldCheck } from "lucide-react";
 
 export const LEONIDAS_MISSIONS: BossMission[] = [
   {
     id: 1,
     title: "Muralha Espartana",
-    image: "pushUp2",
+    image: Shield,
     total: 50,
     unit: "rep",
     tasks: [
@@ -16,7 +17,7 @@ export const LEONIDAS_MISSIONS: BossMission[] = [
   {
     id: 2,
     title: "Lança do Guerreiro",
-    image: "bar",
+    image: ArrowUp,
     total: 50,
     unit: "rep",
     tasks: [
@@ -28,7 +29,7 @@ export const LEONIDAS_MISSIONS: BossMission[] = [
   {
     id: 3,
     title: "Escudo de Esparta",
-    image: "dips",
+    image: ShieldCheck,
     total: 50,
     unit: "rep",
     tasks: [

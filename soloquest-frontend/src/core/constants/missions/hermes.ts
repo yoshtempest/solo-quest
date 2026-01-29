@@ -1,10 +1,11 @@
 import type { BossMission } from "./types";
+import { Zap, ZapOff, Footprints } from "lucide-react";
 
 export const HERMES_MISSIONS: BossMission[] = [
   {
     id: 1,
     title: "Viajante Persistente",
-    image: "pushUp2",
+    image: Zap,
     total: 50,
     unit: "rep",
     tasks: [
@@ -16,7 +17,7 @@ export const HERMES_MISSIONS: BossMission[] = [
   {
     id: 2,
     title: "Arranque Celestial",
-    image: "bar",
+    image: ZapOff,
     total: 50,
     unit: "rep",
     tasks: [
@@ -28,7 +29,7 @@ export const HERMES_MISSIONS: BossMission[] = [
   {
     id: 3,
     title: "Passos do mensageiro",
-    image: "dips",
+    image: Footprints,
     total: 50,
     unit: "rep",
     tasks: [

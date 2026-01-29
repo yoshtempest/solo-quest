@@ -1,10 +1,11 @@
 import type { BossMission } from "./types";
+import { RotateCcw, Waves, Footprints } from "lucide-react";
 
 export const BRUCE_MISSIONS: BossMission[] = [
   {
     id: 1,
     title: "Denovo e Denovo",
-    image: "pushUp2",
+    image: RotateCcw,
     total: 50,
     unit: "rep",
     tasks: [
@@ -16,7 +17,7 @@ export const BRUCE_MISSIONS: BossMission[] = [
   {
     id: 2,
     title: "Punhos como Água",
-    image: "bar",
+    image: Waves,
     total: 50,
     unit: "rep",
     tasks: [
@@ -28,7 +29,7 @@ export const BRUCE_MISSIONS: BossMission[] = [
   {
     id: 3,
     title: "Chutes Fundamentais",
-    image: "dips",
+    image: Footprints,
     total: 50,
     unit: "rep",
     tasks: [

@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import IMAGES from "@/core/constants/images";
 
 interface Props {
     missionsData: Mission[];
@@ -11,7 +10,7 @@ interface Props {
     onMissionCompleted?: (mission: Mission) => void;
 };
 
-export default function MissionList({
+export default function BossMissions({
     missionsData,
     checkboxClassName,
     containerClassName = "justifyStart",
@@ -78,10 +77,7 @@ export default function MissionList({
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
-                                <img
-                                    src={IMAGES[mission.image]}
-                                    alt={mission.title}
-                                />
+                                <mission.image />
                                 <h3>{mission.title}</h3>
                             </div>
 

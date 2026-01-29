@@ -1,10 +1,11 @@
 import type { BossMission } from "./types";
+import { Ghost, MoveDiagonal, VolumeX } from "lucide-react";
 
 export const CMP_MISSIONS: BossMission[] = [
   {
     id: 1,
     title: "Corpo que Desaparece",
-    image: "pushUp2",
+    image: Ghost,
     total: 5,
     unit: "min",
     tasks: [
@@ -16,7 +17,7 @@ export const CMP_MISSIONS: BossMission[] = [
   {
     id: 2,
     title: "Ângulo Morto",
-    image: "bar",
+    image: MoveDiagonal,
     total: 5,
     unit: "min",
     tasks: [
@@ -28,7 +29,7 @@ export const CMP_MISSIONS: BossMission[] = [
   {
     id: 3,
     title: "Silêncio Antes do Golpe",
-    image: "dips",
+    image: VolumeX,
     total: 5,
     unit: "min",
     tasks: [

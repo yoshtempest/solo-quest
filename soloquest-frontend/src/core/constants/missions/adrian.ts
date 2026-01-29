@@ -1,10 +1,11 @@
 import type { BossMission } from "./types";
+import { Plus, Pause, Repeat } from "lucide-react";
 
 export const ADRIAN_MISSIONS: BossMission[] = [
   {
     id: 1,
     title: "Um a Mais",
-    image: "pushUp2",
+    image: Plus,
     total: 50,
     unit: "rep",
     tasks: [
@@ -16,7 +17,7 @@ export const ADRIAN_MISSIONS: BossMission[] = [
   {
     id: 2,
     title: "Segura a Posição",
-    image: "bar",
+    image: Pause,
     total: 50,
     unit: "rep",
     tasks: [
@@ -28,7 +29,7 @@ export const ADRIAN_MISSIONS: BossMission[] = [
   {
     id: 3,
     title: "Não Quebre o Ritmo",
-    image: "dips",
+    image: Repeat,
     total: 50,
     unit: "rep",
     tasks: [

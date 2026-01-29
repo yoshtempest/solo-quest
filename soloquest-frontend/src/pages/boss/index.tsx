@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import Poppup from "@/components/Poppup"
-import MissionList from '@/components/MissionsList'
+import BossMissions from '@/components/BossMissions'
 import DifficultySelector from '@/components/DifficultySelector'
 import BossHp from '@/components/BossHp';
 import { useBossHp } from "@/hooks/useBossHp"
@@ -74,7 +74,7 @@ export default function BossPage() {
                     setCompletedMissions(0);
                 }}
             />
-            <MissionList
+            <BossMissions
                 key={`${boss.id}-${difficulty}`}
                 missionsData={boss.missions}
                 checkboxClassName={styles.checkBox}

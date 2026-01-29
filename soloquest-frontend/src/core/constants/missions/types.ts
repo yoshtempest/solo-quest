@@ -1,9 +1,9 @@
-import IMAGES from "@/core/constants/images";
+import type { LucideIcon } from "lucide-react";
 
 export type BossMission = {
   id: number;
   title: string;
-  image: keyof typeof IMAGES;
+  image: LucideIcon;
   total: number;
   unit: "rep" | "sec" | "min" | "km";
   tasks: string[];

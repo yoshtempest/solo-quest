@@ -3,5 +3,5 @@ export type BossConfig = {
   name: string;
   title: string;
   image: string;
-  missions: any[]; // depois você tipa melhor
+  missions: any[];
 };
