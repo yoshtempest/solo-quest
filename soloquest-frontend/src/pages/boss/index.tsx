@@ -77,9 +77,6 @@ export default function BossPage() {
             <BossMissions
                 key={`${boss.id}-${difficulty}`}
                 missionsData={boss.missions}
-                checkboxClassName={styles.checkBox}
-                containerClassName={styles.justifyStart}
-                showDivider={false}
                 onProgressChange={(completed, total) => {
                     setCompletedMissions(completed);
                     setTotalMissions(total);

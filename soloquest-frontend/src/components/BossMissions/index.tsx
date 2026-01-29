@@ -1,20 +1,15 @@
 import { useState, useEffect, useRef } from "react";
+import styles from "./styles.module.css";
 
 interface Props {
     missionsData: Mission[];
-    checkboxClassName?: string;
-    containerClassName?: string;
-    showDivider?: boolean;
-    onProgressChange?: (completed: number, total: number) => void;
-    onAllCompleted?: () => void;
+    onProgressChange: (completed: number, total: number) => void;
+    onAllCompleted: () => void;
     onMissionCompleted?: (mission: Mission) => void;
 };
 
 export default function BossMissions({
     missionsData,
-    checkboxClassName,
-    containerClassName = "justifyStart",
-    showDivider = true,
     onProgressChange,
     onAllCompleted,
     onMissionCompleted
@@ -71,9 +66,7 @@ export default function BossMissions({
                 return (
                     <div
                         key={mission.id}
-                        className={`columnContainer ${
-                            containerClassName ?? ""
-                        }`}
+                        className={`columnContainer ${styles.justifyStart}`}
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
@@ -85,7 +78,7 @@ export default function BossMissions({
                                 <h3>{progress}</h3>
                                 <input
                                     type="checkbox"
-                                    className={checkboxClassName}
+                                    className={styles.checkBox}
                                     checked={mission.completed}
                                     disabled={mission.completed}
                                     onChange={() =>
@@ -100,8 +93,6 @@ export default function BossMissions({
                                 {index + 1} - {task}
                             </h4>
                         ))}
-
-                        {showDivider && <hr />}
                     </div>
                 );
             })}
