@@ -1,20 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./styles.module.css";
+import type { BossMission } from "@/core/constants/missions/types";
 
 interface Props {
-    missionsData: Mission[];
+    missionsData: BossMission[];
     onProgressChange: (completed: number, total: number) => void;
     onAllCompleted: () => void;
-    onMissionCompleted?: (mission: Mission) => void;
+    onMissionCompleted?: (mission: BossMission) => void;
 };
 
 export default function BossMissions({
-    missionsData,
+    missionsData = [],
     onProgressChange,
     onAllCompleted,
     onMissionCompleted
 }: Props) {
-    const [missions, setMissions] = useState(missionsData);
+    const [missions, setMissions] = useState<BossMission[]>(missionsData);
     const allCompletedRef = useRef(false);
 
     function completeMission(id: number) {
@@ -59,6 +60,7 @@ export default function BossMissions({
     return (
         <>
             {missions.map((mission) => {
+                const Icon = mission.image;
                 const progress = mission.completed
                     ? `${mission.total}/${mission.total}${mission.unit}`
                     : `0/${mission.total}${mission.unit}`;
@@ -70,7 +72,7 @@ export default function BossMissions({
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
-                                <mission.image />
+                                <Icon size={20} />
                                 <h3>{mission.title}</h3>
                             </div>
 
@@ -79,7 +81,7 @@ export default function BossMissions({
                                 <input
                                     type="checkbox"
                                     className={styles.checkBox}
-                                    checked={mission.completed}
+                                    checked={!!mission.completed}
                                     disabled={mission.completed}
                                     onChange={() =>
                                         completeMission(Number(mission.id))
