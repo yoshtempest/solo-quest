@@ -19,3 +19,74 @@
 .button {
     width: 100%;
 }
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Modal em si */
+.modal {
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    padding: 1vh 3vw;
+    border-radius: 12px;
+    width: 90%;
+    position: relative;
+}
+
+/* Botão X */
+.closeButton {
+    width: fit-content;
+    background: none;
+    cursor: pointer;
+}
+
+/* Input */
+.input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.userList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    max-height: 36vh;
+    overflow-y: auto;
+    margin-bottom: 16px;
+}
+
+.userItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    background: #1a1a1a;
+    transition: background 0.2s;
+}
+
+.userItem h4 {
+    color: var(--background);
+}
+
+.userItem:hover {
+    background: #2a2a2a;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #333;
+}
+
