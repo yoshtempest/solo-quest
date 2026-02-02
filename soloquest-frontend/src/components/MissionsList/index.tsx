@@ -1,27 +1,16 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import IMAGES from "@/core/constants/images";
 
 interface Props {
     missionsData: Mission[];
-    checkboxClassName?: string;
-    containerClassName?: string;
-    showDivider?: boolean;
-    onProgressChange?: (completed: number, total: number) => void;
-    onAllCompleted?: () => void;
     onMissionCompleted?: (mission: Mission) => void;
 };
 
 export default function MissionList({
     missionsData,
-    checkboxClassName,
-    containerClassName = "justifyStart",
-    showDivider = true,
-    onProgressChange,
-    onAllCompleted,
     onMissionCompleted
 }: Props) {
     const [missions, setMissions] = useState(missionsData);
-    const allCompletedRef = useRef(false);
 
     function completeMission(id: number) {
         setMissions((prev) => {
@@ -42,25 +31,6 @@ export default function MissionList({
             return updated;
         });
     }
-    useEffect(() => {
-        const completedCount = missions.filter(m => m.completed).length;
-        const total = missions.length;
-
-        onProgressChange?.(completedCount, total);
-
-        if (
-            completedCount === total &&
-            total > 0 &&
-            !allCompletedRef.current
-        ) {
-            allCompletedRef.current = true;
-            onAllCompleted?.();
-        }
-
-        if (completedCount < total) {
-            allCompletedRef.current = false;
-        }
-    }, [missions, onProgressChange, onAllCompleted]);
 
     return (
         <>
@@ -72,9 +42,7 @@ export default function MissionList({
                 return (
                     <div
                         key={mission.id}
-                        className={`columnContainer ${
-                            containerClassName ?? ""
-                        }`}
+                        className={`columnContainer justifyStart`}
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
@@ -86,7 +54,6 @@ export default function MissionList({
                                 <h3>{progress}</h3>
                                 <input
                                     type="checkbox"
-                                    className={checkboxClassName}
                                     checked={mission.completed}
                                     disabled={mission.completed}
                                     onChange={() =>
@@ -102,7 +69,7 @@ export default function MissionList({
                             </h4>
                         ))}
 
-                        {showDivider && <hr />}
+                        <hr />
                     </div>
                 );
             })}

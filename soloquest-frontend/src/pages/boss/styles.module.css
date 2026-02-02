@@ -19,30 +19,4 @@
   flex-direction: column;
   align-items: center;
   padding: 5vh 0 15vh 0;
-<<<<<<< HEAD
 }
-
-.justifyStart h4 {
-  width: 95%;
-  color: var(--background)
-}
-
-.justifyStart h3 {
-  color: var(--background);
-}
-
-.justifyStart {
-  display: flex;
-  width: 87vw;
-  gap: 1vh;
-  background-color: #31124D;
-  border-radius: 10px;
-  height: 15vh;
-}
-
-input[type="checkbox"].checkBox {
-    border: 1px solid white;
-}
-=======
-}
->>>>>>> 3ced5febeeee6b4aeb4f2b0f36959e48912ae09c
