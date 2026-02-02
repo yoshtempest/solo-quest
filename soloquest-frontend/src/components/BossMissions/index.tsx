@@ -72,7 +72,7 @@ export default function BossMissions({
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
-                                <Icon size={20} />
+                                <Icon size={32} className={styles.icon}/>
                                 <h3>{mission.title}</h3>
                             </div>
 
