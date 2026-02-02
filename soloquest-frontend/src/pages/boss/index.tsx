@@ -1,10 +1,6 @@
 import styles from './styles.module.css'
 import Poppup from "@/components/Poppup"
-<<<<<<< HEAD
-import MissionList from '@/components/MissionsList'
-=======
 import BossMissions from '@/components/BossMissions'
->>>>>>> 3ced5febeeee6b4aeb4f2b0f36959e48912ae09c
 import DifficultySelector from '@/components/DifficultySelector'
 import BossHp from '@/components/BossHp';
 import { useBossHp } from "@/hooks/useBossHp"
@@ -78,18 +74,10 @@ export default function BossPage() {
                     setCompletedMissions(0);
                 }}
             />
-<<<<<<< HEAD
-            <MissionList
-                key={`${boss.id}-${difficulty}`}
-                missionsData={boss.missions}
-                checkboxClassName={styles.checkBox}
-                containerClassName={styles.justifyStart}
-                showDivider={false}
-=======
+
             <BossMissions
                 key={`${boss.id}-${difficulty}`}
                 missionsData={boss.missions}
->>>>>>> 3ced5febeeee6b4aeb4f2b0f36959e48912ae09c
                 onProgressChange={(completed, total) => {
                     setCompletedMissions(completed);
                     setTotalMissions(total);
