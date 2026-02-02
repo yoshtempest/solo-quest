@@ -58,7 +58,7 @@ export default function BossMissions({
     }, [missions, onProgressChange, onAllCompleted]);
 
     return (
-        <>
+        <div className={styles.container}>
             {missions.map((mission) => {
                 const Icon = mission.image;
                 const progress = mission.completed
@@ -98,6 +98,6 @@ export default function BossMissions({
                     </div>
                 );
             })}
-        </>
+        </div>
     );
 }

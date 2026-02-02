@@ -10,8 +10,8 @@ export const MUSASHI_MISSIONS: BossMission[] = [
     unit: "min",
     tasks: [
       "Inspire em 4s, segure 4s e expire em 4s",
-      "Mantenha os ombros e a mandíbula relaxados",
-      "Se a mente divagar, volte a atenção para a respiração"
+      "Mantenha-se relaxado",
+      "Foque a atenção na respiração"
     ]
   },
   {

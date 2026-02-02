@@ -8,8 +8,8 @@ import { BRUCE } from "./bruce";
 import type { BossConfig } from "./types";
 
 export const DAILY_BOSSES: Record<number, BossConfig> = {
-  0: MUSASHI,  // domingo
-  1: LEONIDAS, // segunda
+  1: MUSASHI,  // domingo
+  0: LEONIDAS, // segunda
   2: HERMES,   // terça
   3: ADRIAN,
   4: CMP,

@@ -10,7 +10,7 @@ export const LEONIDAS_MISSIONS: BossMission[] = [
     unit: "rep",
     tasks: [
       "Prancha com toque alternado nos ombros",
-      "Abdômen contraído durante todo o movimento",
+      "Abdômen contraído durante o movimento",
       "Evite qualquer rotação do tronco"
     ]
   },
@@ -23,7 +23,7 @@ export const LEONIDAS_MISSIONS: BossMission[] = [
     tasks: [
       "Elevação de pernas deitado",
       "Pernas estendidas e descida controlada",
-      "Não encoste os pés no chão entre as repetições"
+      "Não pise no chão entre as repetições"
     ]
   },
   {
