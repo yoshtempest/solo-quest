@@ -1,11 +1,8 @@
-import IMAGES from "@/core/constants/images"
-
-
 const WEEKLY_MISSIONS: Mission[] = [
     {
         id: "stretch",
         title: "Alongue-se",
-        image: IMAGES.stretching,
+        image: "stretching",
         total: 45,
         unit: "min",
         completed: false,
@@ -18,7 +15,7 @@ const WEEKLY_MISSIONS: Mission[] = [
     {
         id: "squat",
         title: "Agachamento",
-        image: IMAGES.squat,
+        image: "squat",
         total: 80,
         unit: "rep",
         completed: false,
@@ -31,7 +28,7 @@ const WEEKLY_MISSIONS: Mission[] = [
     {
         id: "run",
         title: "Corra",
-        image: IMAGES.run,
+        image: "run",
         total: 10,
         unit: "km",
         completed: false,
@@ -44,7 +41,7 @@ const WEEKLY_MISSIONS: Mission[] = [
     {
         id: "abs",
         title: "Abdômen",
-        image: IMAGES.abs,
+        image: "abs",
         total: 100,
         unit: "rep",
         completed: false,
@@ -58,7 +55,7 @@ const WEEKLY_MISSIONS: Mission[] = [
     {
         id: "pushup",
         title: "Flexão",
-        image: IMAGES.pushUp,
+        image: "pushup",
         total: 500,
         unit: "rep",
         completed: false,
@@ -72,7 +69,7 @@ const WEEKLY_MISSIONS: Mission[] = [
     {
         id: "planche",
         title: "Prancha",
-        image: IMAGES.planche,
+        image: "planche",
         total: 10,
         unit: "min",
         completed: false,
@@ -86,7 +83,7 @@ const WEEKLY_MISSIONS: Mission[] = [
     {
         id: "addicted",
         title: "Viciado em treino",
-        image: IMAGES.addicted,
+        image: "addicted",
         total: 5,
         unit: "h",
         completed: false,

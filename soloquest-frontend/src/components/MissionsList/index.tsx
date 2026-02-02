@@ -39,6 +39,7 @@ export default function MissionList({
                     ? `${mission.total}/${mission.total}${mission.unit}`
                     : `0/${mission.total}${mission.unit}`;
 
+                const imageSrc = IMAGES[mission.image] ?? IMAGES.abs;
                 return (
                     <div
                         key={mission.id}
@@ -46,7 +47,7 @@ export default function MissionList({
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
-                                <img src={IMAGES[mission.image]} alt={mission.title} />
+                                <img src={imageSrc} alt={mission.title} />
                                 <h3>{mission.title}</h3>
                             </div>
 

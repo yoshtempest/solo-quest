@@ -1,7 +1,7 @@
 import.meta.glob;
 
 
-const modules = import.meta.glob(
+const modules = import.meta.glob<string>(
   "@/assets/icons/*.svg",
   { eager: true, import: "default" }
 );
@@ -16,6 +16,6 @@ const IMAGES = Object.fromEntries(
 
     return [name, file];
   })
-) as Record<string, string>;
+);
 
 export default IMAGES;

@@ -1,11 +1,8 @@
-import IMAGES from "@/core/constants/images"
-
-
 const DAILY_MISSIONS: Mission[] = [
     {
         id: "stretch",
         title: "Alongue-se",
-        image: IMAGES.stretching,
+        image: "stretching",
         total: 5,
         unit: "min",
         completed: false,
@@ -18,7 +15,7 @@ const DAILY_MISSIONS: Mission[] = [
     {
         id: "run",
         title: "Corra",
-        image: IMAGES.run,
+        image: "run",
         total: 10,
         unit: "km",
         completed: false,
@@ -31,7 +28,7 @@ const DAILY_MISSIONS: Mission[] = [
     {
         id: "abs",
         title: "Abdômen",
-        image: IMAGES.planche,
+        image: "abs",
         total: 10,
         unit: "min",
         completed: false,
@@ -45,7 +42,7 @@ const DAILY_MISSIONS: Mission[] = [
     {
         id: "pushup",
         title: "Flexão",
-        image: IMAGES.pushUp,
+        image: "pushup",
         total: 100,
         unit: "rep",
         completed: false,
@@ -59,7 +56,7 @@ const DAILY_MISSIONS: Mission[] = [
     {
         id: "lower",
         title: "Inferiores",
-        image: IMAGES.lower,
+        image: "lower",
         total: 100,
         unit: "rep",
         completed: false,
