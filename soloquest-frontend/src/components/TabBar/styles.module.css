@@ -1,7 +1,7 @@
 .tabBar {
   display: flex;
   position: fixed;
-  box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.7);
+  border-top: 1px solid var(--main-color);
   background-color: var(--background);
   align-items: center;
   justify-content: center;
@@ -9,7 +9,6 @@
   left: 0;
   width: 100%;
   height: 10vh;
-  gap: 5vw;
   z-index: 1000;
 }
 
@@ -21,9 +20,6 @@
   cursor: pointer;
 }
 
-.images {
-  width: 32px;
-}
 .content {
   transition: opacity 0.25s ease;
   color: var(--foreground);
@@ -38,8 +34,13 @@
 }
 
 .active {
+  display: flex;
+  justify-content: center;
+  background-color: var(--main-color);
   opacity: 1;
-  max-height: 8vh;
+  min-height: 10vh;
+  width: 25vw;
+  min-width: fit-content;
 }
 
 .invisible {

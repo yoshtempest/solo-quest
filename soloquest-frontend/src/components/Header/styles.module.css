@@ -1,12 +1,10 @@
 .header {
     display: flex;
     position: inline-block;
-    background: linear-gradient(90deg,
-        #000 0%,
-        #737373 50%,
-        #560D0D 90%);
+    background-color: var(--background);
     align-items: center;
-    justify-content: center;
+    border-bottom: 1px solid var(--main-color);
+    justify-content: space-between;
     top: 0;
     left: 0;
     width: 100%;
@@ -14,6 +12,26 @@
 }
 
 .logoTitle {
-    font-family: var(--irish-grover);
-    color: var(--background);
+  padding-left: 5%;
+  font-family: var(--irish-grover);
+  background: linear-gradient(90deg,
+    var(--foreground) 0%,
+    #1e1e1e 50%,
+    #560D0D 90%
+  );
+  -webkit-background-clip: text; /* necessário para Chrome */
+  -webkit-text-fill-color: transparent; /* necessário para Chrome */
+  background-clip: text;
+  color: transparent;
+}
+
+.themeContainer {
+    display: flex;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 5px;
+    border: 1px solid var(--main-color);
+    align-items: center;
+    justify-content: center;
+    margin-right: 5%;
 }
