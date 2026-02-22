@@ -47,7 +47,7 @@ export default function MissionList({
                     >
                         <div className="rowContainer spacement">
                             <div className="rowContainer">
-                                <img src={imageSrc} alt={mission.title} />
+                                <img className="darkInvert" src={imageSrc} alt={mission.title} />
                                 <h3>{mission.title}</h3>
                             </div>
 

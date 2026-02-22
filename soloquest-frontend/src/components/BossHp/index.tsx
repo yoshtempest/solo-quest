@@ -13,8 +13,8 @@ export default function BossHp({ percentage }: Props) {
                     width: `${percentage}%`,
                     background:
                         percentage === 0
-                            ? "linear-gradient(to left, #FF0000, red)"
-                            : "linear-gradient(to left, red, darkred)",
+                            ? "linear-gradient(to left, #FF0000, var(--red))"
+                            : "linear-gradient(to left, var(--red), var(--darkred))",
                 }}
             />
             <img

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 1vh;
+  background-color: rgba(var(--card), 0.7);
 }
 
 .justifyStart h4 {
@@ -23,7 +24,7 @@
 }
 
 input[type="checkbox"].checkBox {
-  border: 1px solid white;
+  border: 1px solid var(--background);
 }
 
 .icon {

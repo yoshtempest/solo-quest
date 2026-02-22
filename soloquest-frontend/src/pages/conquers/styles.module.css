@@ -18,7 +18,7 @@
     height: 8vh;
     text-align: center;
     border-radius: 10px;
-    background-color: #d9d9d9;
+    background-color: var(--white-dark);
 }
 
 .item h3 {
@@ -30,7 +30,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 2vw;
+    gap: 1vw;
     width: fit-content;
 }
 
@@ -43,7 +43,7 @@
     width: 18vw;
     left: 3vw;
     border-radius: 10px;
-    background-color: #d9d9d9;
+    background-color: var(--white-dark);
 }
 
 .icon {
@@ -68,10 +68,11 @@
 
 .text {
     text-align: center;
-    background-color: #d9d9d9;
+    background-color: var(--white-dark);
     border-radius: 2px;
+    padding: 0% 1%;
 }
 
 .completed {
-    background-color: #32CD32;
+    background-color: var(--green);
 }
